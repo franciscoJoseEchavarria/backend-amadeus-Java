@@ -40,6 +40,8 @@ public class UserEntity {
     @OneToMany (mappedBy = "userEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<UserQueryEntity> userQueryEntity;; // Campo que referencia a la entidad UserEntity
 
+    @OneToMany (mappedBy = "userEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<DestinosEntity> destinosEntity;
 }
 
 

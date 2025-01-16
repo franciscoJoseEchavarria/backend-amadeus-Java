@@ -4,6 +4,7 @@ import com.eafit.retoamadeus.contracts.request.UserQueryRequest;
 import com.eafit.retoamadeus.contracts.request.UserRequest;
 import com.eafit.retoamadeus.contracts.responses.UserQueryResponse;
 import com.eafit.retoamadeus.contracts.responses.UserResponse;
+import com.eafit.retoamadeus.logic.Logica;
 import com.eafit.retoamadeus.mappers.implementation.UserMapper;
 import com.eafit.retoamadeus.mappers.intefaces.UserInterface;
 import com.eafit.retoamadeus.mappers.intefaces.UserQueryInterface;
@@ -32,6 +33,7 @@ public class UserQueryController {
 
     private final UserQueryService userService;
     private final UserQueryInterface userMapper;
+    private final Logica logica;
 
     @GetMapping ("/list")
     public List<UserQueryResponse> getUsers() {
@@ -45,7 +47,9 @@ public class UserQueryController {
         if (userRequest.getUser() == null) {
             throw new IllegalArgumentException("User cannot be null");
         }
+
         UserQuerysModel userQuerysModel = userMapper.mapUserQueryRequestToUserQueryModel(userRequest);
+
         return userMapper.mapUserQueryModelToUserQueryResponse(userService.save(userQuerysModel));
     }
 

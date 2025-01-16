@@ -1,5 +1,6 @@
 package com.eafit.retoamadeus.contracts.responses;
 import com.eafit.retoamadeus.models.RoleUser;
+import com.eafit.retoamadeus.models.UserQuerysModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,4 +15,5 @@ public class UserResponse {
     private String name;
     private String email;
     private RoleUser role;
+
 }

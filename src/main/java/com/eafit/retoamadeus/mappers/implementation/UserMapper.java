@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 public class UserMapper {
 
 
+
+
     // Mapea un objeto User a un objeto UserEntity
     public UserEntity mapUserModelToUserEntity(User user) {
         return  UserEntity.builder()

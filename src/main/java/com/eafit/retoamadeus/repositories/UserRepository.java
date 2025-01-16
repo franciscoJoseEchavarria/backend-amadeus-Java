@@ -12,7 +12,7 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
 
     // Buscar una persona por cédula
-    Optional<UserEntity> findById(Long id);
+
 
     // Guardar una persona
     UserEntity save(UserEntity userEntity);

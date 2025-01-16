@@ -1,3 +1,119 @@
+
+
+package com.eafit.retoamadeus.logic;
+
+import com.eafit.retoamadeus.contracts.request.DestinosRequest;
+import com.eafit.retoamadeus.entities.DestinosEntity;
+import com.eafit.retoamadeus.entities.DestinosEntity;
+import com.eafit.retoamadeus.entities.UserQueryEntity;
+import com.eafit.retoamadeus.models.UserQuerysModel;
+import com.eafit.retoamadeus.repositories.DestinoRepository;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Service
+public class Logica {
+
+    @Autowired
+    private DestinoRepository destinoRepository;
+
+    public DestinosEntity logicaNegocio(DestinosRequest destinosRequest) {
+
+        String environmentType1 = destinosRequest.getPDestino();
+        String climateType2 = destinosRequest.getPclima();
+        String accommodationType3 = destinosRequest.getPActividad();
+        String activityType4 = destinosRequest.getPAlojamiento();
+        String stayDuration = destinosRequest.getPduración();
+        String ageRange = destinosRequest.getPrangoEdad();
+
+        String destinoAmerica = null;
+        String destinoEuropa = null;
+
+        if ("Playa".equals(environmentType1) && "Caluroso".equals(climateType2) &&
+            "Relax y Bienestar".equals(accommodationType3) &&
+            "Hotel de Lujo".equals(activityType4) &&
+            "1-2 semanas".equals(stayDuration) &&
+            "Menos de 30 años".equals(ageRange)) {
+
+            destinoAmerica = "Playa del Carmen";
+            destinoEuropa = "Santorini";
+        } else if ("Playa".equals(environmentType1) && "Caluroso".equals(climateType2) &&
+                   "Cultura y Museos".equals(accommodationType3) &&
+                   "Airbnb".equals(activityType4) &&
+                   "Menos de una semana".equals(stayDuration) &&
+                   "Menos de 30 años".equals(ageRange)) {
+            destinoAmerica = "Cartagena";
+            destinoEuropa = "Barcelona";
+        } else if ("Playa".equals(environmentType1) && "Templado".equals(climateType2) &&
+                   "Cultura y Museos".equals(accommodationType3) &&
+                   "Hotel de Lujo".equals(activityType4) &&
+                   "1-2 semanas".equals(stayDuration) &&
+                   "30-50 años".equals(ageRange)) {
+            destinoAmerica = "Rio de Janeiro";
+            destinoEuropa = "Lisboa";
+        } else if ("Montaña".equals(environmentType1) && "Frío".equals(climateType2) &&
+                   "Deportes y Aventuras".equals(accommodationType3) &&
+                   "Hostal o Albergue".equals(activityType4) &&
+                   "1-2 semanas".equals(stayDuration) &&
+                   "Menos de 30 años".equals(ageRange)) {
+            destinoAmerica = "Bariloche";
+            destinoEuropa = "Interlaken";
+        } else if ("Montaña".equals(environmentType1) && "Templado".equals(climateType2) &&
+                   "Cultura y Museos".equals(accommodationType3) &&
+                   "Airbnb".equals(activityType4) &&
+                   "1-2 semanas".equals(stayDuration) &&
+                   "Más de 50 años".equals(ageRange)) {
+            destinoAmerica = "Cusco";
+            destinoEuropa = "Granada";
+        } else if ("Montaña".equals(environmentType1) && "Frío".equals(climateType2) &&
+                   "Deportes y Aventuras".equals(accommodationType3) &&
+                   "Hotel de Lujo".equals(activityType4) &&
+                   "1-2 semanas".equals(stayDuration) &&
+                   "30-50 años".equals(ageRange)) {
+            destinoAmerica = "Banff";
+            destinoEuropa = "Zermatt";
+        } else if ("Ciudad".equals(environmentType1) && "Templado".equals(climateType2) &&
+                   "Cultura y Museos".equals(accommodationType3) &&
+                   "Hotel de Lujo".equals(activityType4) &&
+                   "1-2 semanas".equals(stayDuration) &&
+                   "Más de 50 años".equals(ageRange)) {
+            destinoAmerica = "Nueva York";
+            destinoEuropa = "París";
+        }
+
+        if (destinoAmerica == null && destinoEuropa == null) {
+            destinoAmerica = "Bora Bora";
+            destinoEuropa = "Dubaí";
+        }
+
+        return new DestinosEntity(null, destinoAmerica, destinoEuropa);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
 package com.eafit.retoamadeus.logic;
 
 import com.eafit.retoamadeus.entities.UserQueryEntity;
@@ -17,7 +133,7 @@ public class Logica {
     private String destinoAmerica;
     private String destinoEuropa;
 
-    public void logicaNegocio(UserQueryEntity userQueryEntity) {
+    public void logicaNegocio (UserQueryEntity userQueryEntity) {
 
         String environmentType1 = userQueryEntity.getEnvironmentType1();
         String climateType2 = userQueryEntity.getClimateType2();
@@ -103,8 +219,16 @@ public class Logica {
                 this.destinoEuropa = "Dubaí";
             }
 
+
+
+
+    }
 }
-}
+
+
+*/
+
+
 
 /** otra forma de hacerlo
  public void logicaNegocio(UserQueryEntity userQueryEntity) {
