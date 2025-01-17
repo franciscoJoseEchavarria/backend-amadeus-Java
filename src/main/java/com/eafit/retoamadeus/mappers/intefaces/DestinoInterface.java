@@ -14,12 +14,10 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface DestinoInterface {
 
-    @Mapping(target = "destinoAmerica", ignore = true)
-    @Mapping(target = "destinoEuropa", ignore = true)
+
     DestinosEntity mapDestinoRequestToDestinoEntity(DestinosRequest destinosRequest);
 
-    @Mapping(target = "destinoAmerica", ignore = true)
-    @Mapping(target = "destinoEuropa", ignore = true)
+
     DestinosResponse mapDestinosEntityToDestinoResponse(DestinosEntity destinosEntity);
 
 

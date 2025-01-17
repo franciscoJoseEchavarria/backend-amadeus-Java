@@ -51,6 +51,8 @@ public class UserQueryService {
         // Asigna la entidad de usuario encontrada a la entidad de consulta de usuario
         userQuerysEntity.setUserEntity(userEntity);
 
+
+
         // Establece la fecha y hora actual como la fecha de creación de la entidad de consulta de usuario
         userQuerysEntity.setCreatedAt(LocalDateTime.now());
 
