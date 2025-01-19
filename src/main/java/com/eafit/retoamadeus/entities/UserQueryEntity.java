@@ -52,20 +52,12 @@ public class UserQueryEntity {
     private LocalDateTime updatedAt;
 
 
-
-
     @ManyToOne ( cascade = CascadeType.ALL, fetch = FetchType.LAZY)// Indica una relación de muchos a uno con otra entidad
-    @JoinColumn(name = "user_id", nullable = false) // Define la columna de unión para la relación y que no puede ser nula
+    @JoinColumn(name = "usuarios y userQuery", nullable = false) // Define la columna de unión para la relación y que no puede ser nula
     private UserEntity userEntity; // Campo que referencia a la entidad UserEntity
 
-    @OneToOne (cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn (name = "destinos_id")
+    @OneToOne (mappedBy = "userQueryEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private DestinosEntity destinosEntity;
-
-
-
-
-
 
     //Para que sirve esta parte del código? "abajo"
 

@@ -42,7 +42,7 @@ public class DestinosController {
 
         DestinosModel destinosModel = (destinoInterface.mapDestinoRequestToDestinoModel(destinoRequest));
 
-        destinosModel = logica.logicaNegocio(destinoRequest);
+
 
 
         return destinoInterface.mapDestinoModelToDestinoResponse(destinoService.save(destinosModel));

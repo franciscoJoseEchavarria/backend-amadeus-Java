@@ -8,6 +8,7 @@ import com.eafit.retoamadeus.models.DestinosModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -18,6 +19,12 @@ public interface DestinoRepository extends JpaRepository<DestinosEntity,Long> {
     Optional<DestinosEntity> findById(Long id);
 
     DestinosEntity save(DestinosEntity destinosEntity);
+
+
+
+    //Guardar una persona
+
+
 
 
 

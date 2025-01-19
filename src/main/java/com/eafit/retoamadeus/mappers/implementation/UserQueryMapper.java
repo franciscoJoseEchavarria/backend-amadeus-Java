@@ -45,12 +45,7 @@ public class UserQueryMapper {
                                 .email(userQuerysModel.getUser().getEmail())
                                 .role(userQuerysModel.getUser().getRole())
                                 .build() : null)
-                .destinosEntity(userQuerysModel.getDestinosModel() != null ? // Si los destinos no son nulos
-                        DestinosEntity.builder()
-                                .id(userQuerysModel.getDestinosModel().getId())
-                                .destinoAmerica(userQuerysModel.getDestinosModel().getDestinoAmerica())
-                                .destinoEuropa(userQuerysModel.getDestinosModel().getDestinoEuropa())
-                                .build() : null)
+
 
                 .build(); // Construye la entidad UserQueryEntity
     }
@@ -74,12 +69,7 @@ public class UserQueryMapper {
                                 .email(userQueryEntity.getUserEntity().getEmail())
                                 .role(userQueryEntity.getUserEntity().getRole())
                                 .build() : null)
-                .destinosModel(userQueryEntity.getDestinosEntity() != null ? // Si la entidad de destinos no es nula
-                        DestinosModel.builder()
-                                .id(userQueryEntity.getDestinosEntity().getId())
-                                .destinoAmerica(userQueryEntity.getDestinosEntity().getDestinoAmerica())
-                                .destinoEuropa(userQueryEntity.getDestinosEntity().getDestinoEuropa())
-                                .build() : null)
+
                 .build(); // Construye el modelo UserQuerysModel
     }
 

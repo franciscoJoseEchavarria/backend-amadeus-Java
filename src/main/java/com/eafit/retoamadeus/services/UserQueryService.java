@@ -21,14 +21,14 @@ public class UserQueryService {
     private final UserQueryRepository userQueryRepository;
     private final UserQueryMapper userQueryMapper;
     private final UserRepository userRepository;
-    private final DestinoRepository destinoRepository;
+
 
     public UserQueryService(UserQueryRepository userQueryRepository, UserQueryMapper userQueryMapper,
-                            UserRepository userRepository, DestinoRepository destinoRepository) {
+                            UserRepository userRepository) {
         this.userRepository = userRepository;
         this.userQueryRepository = userQueryRepository;
         this.userQueryMapper = userQueryMapper;
-        this.destinoRepository = destinoRepository;
+
     }
 
     /**

@@ -31,16 +31,12 @@ public class DestinosEntity {
     private UserEntity userEntity; // Campo que referencia a la entidad UserEntity
 
 
-
-    @OneToOne (mappedBy = "destinosEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne ( cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "userQuery_id", nullable = false)
     private UserQueryEntity userQueryEntity;
 
     // se añade el constructor con los atributos de la clase
 
-    public DestinosEntity(Long id, String destinoAmerica, String destinoEuropa) {
-        this.id = id;
-        this.destinoAmerica = destinoAmerica;
-        this.destinoEuropa = destinoEuropa;
-    }
+
 
 }

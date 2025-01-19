@@ -42,39 +42,45 @@ public class DestinoService {
         this.userQueryRepository = userQueryRepository;
     }
 
-   @Transactional
-public DestinosModel save(DestinosModel destinosModel) {
+        @Transactional
+        public DestinosModel save(DestinosModel destinosModel) {
 
-    if (destinosModel.getUser() == null) {
-        throw new IllegalArgumentException("User cannot be null");
-    }
+            if (destinosModel == null) {
+                throw new IllegalArgumentException("DestinosModel cannot be null");
+            }
 
-    UserEntity userEntity = userRepository.findById(destinosModel.getUser().getId())
-            .orElseThrow(() -> new RuntimeException("User not found"));
+            if (destinosModel.getUser() == null) {
+                throw new IllegalArgumentException("user no se esta guardando y da nulo");
+            }
 
-    if (destinosModel.getUserQuerysModel() == null || destinosModel.getUserQuerysModel().getId() == null) {
-        throw new IllegalArgumentException("UserQuery cannot be null and must have an ID");
-    }
+            UserEntity userEntity = userRepository.findById(destinosModel.getUser().getId())
+                    .orElseThrow(() -> new RuntimeException("User not found"));
+
+            if (destinosModel.getUserQuerysModel() == null || destinosModel.getUserQuerysModel().getId() == null) {
+                throw new IllegalArgumentException("UserQuery cannot be null and must have an ID");
+            }
 
 
 
-    DestinosEntity destinosEntity = destinoMapper.mapDestinoModelToDestinoEntity(destinosModel);
+            DestinosEntity destinosEntity = destinoMapper.mapDestinoModelToDestinoEntity(destinosModel);
 
-       destinosEntity.setUserEntity(userEntity);
-       UserQueryEntity userQueryEntity = userQueryRepository.findById(destinosModel.getUserQuerysModel().getId())
-               .orElseThrow(() -> new RuntimeException("UserQuery not found"));
+               destinosEntity.setUserEntity(userEntity);
 
-        destinosEntity.setUserQueryEntity(userQueryEntity);
 
-        destinosEntity = destinoRepository.save(destinosEntity);
+               UserQueryEntity userQueryEntity = userQueryRepository.findById(destinosModel.getUserQuerysModel().getId())
+                       .orElseThrow(() -> new RuntimeException("UserQuery not found"));
 
-    return destinoMapper.mapDestinoEntitiesDestinoModel(destinosEntity);
-}
+                destinosEntity.setUserQueryEntity(userQueryEntity);
 
-    public List<DestinosModel> findAll() {
-        return destinoRepository.findAll().stream()
-                .map(destinoMapper::mapDestinoEntitiesDestinoModel)
-                .collect(Collectors.toList());
-    }
+                destinosEntity = destinoRepository.save(destinosEntity);
+
+            return destinoMapper.mapDestinoEntitiesDestinoModel(destinosEntity);
+        }
+
+        public List<DestinosModel> findAll() {
+            return destinoRepository.findAll().stream()
+                    .map(destinoMapper::mapDestinoEntitiesDestinoModel)
+                    .collect(Collectors.toList());
+        }
 
 }

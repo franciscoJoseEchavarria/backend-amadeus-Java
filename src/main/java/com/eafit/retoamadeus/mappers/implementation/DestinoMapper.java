@@ -5,6 +5,7 @@ import com.eafit.retoamadeus.contracts.request.DestinosRequest;
 import com.eafit.retoamadeus.contracts.responses.DestinosResponse;
 import com.eafit.retoamadeus.entities.DestinosEntity;
 import com.eafit.retoamadeus.entities.UserEntity;
+import com.eafit.retoamadeus.entities.UserQueryEntity;
 import com.eafit.retoamadeus.mappers.intefaces.DestinoInterface;
 import com.eafit.retoamadeus.models.DestinosModel;
 import com.eafit.retoamadeus.models.User;
@@ -17,9 +18,6 @@ import java.util.stream.Collectors;
 
 @Component // Anotación que indica que esta clase es un componente de Spring
 public class DestinoMapper {
-
-
-
 
 
 
@@ -55,7 +53,8 @@ public class DestinoMapper {
                                 .stayDuration(destinosEntity.getUserQueryEntity().getStayDuration())
                                 .ageRange(destinosEntity.getUserQueryEntity().getAgeRange())
                                 .build() : null)
-                        .build();
+
+                .build();
     }
 
 
@@ -71,6 +70,19 @@ public class DestinoMapper {
                                 .name(destinosModel.getUser().getName())
                                 .email(destinosModel.getUser().getEmail())
                                 .role(destinosModel.getUser().getRole())
+                                .build() : null)
+
+                .userQueryEntity(destinosModel.getUserQuerysModel() != null ? // Si la consulta de usuario no es nula
+                        UserQueryEntity.builder()
+                                .id(destinosModel.getUserQuerysModel().getId())
+                                .query(destinosModel.getUserQuerysModel().getQuery())
+                                .queryTime(destinosModel.getUserQuerysModel().getQueryTime())
+                                .environmentType1(destinosModel.getUserQuerysModel().getEnvironmentType1())
+                                .climateType2(destinosModel.getUserQuerysModel().getClimateType2())
+                                .accommodationType3(destinosModel.getUserQuerysModel().getAccommodationType3())
+                                .activityType4(destinosModel.getUserQuerysModel().getActivityType4())
+                                .stayDuration(destinosModel.getUserQuerysModel().getStayDuration())
+                                .ageRange(destinosModel.getUserQuerysModel().getAgeRange())
                                 .build() : null)
                 .build(); // Construye la entidad DestinosEntity
     }
