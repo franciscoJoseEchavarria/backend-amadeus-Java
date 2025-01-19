@@ -7,6 +7,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+
+// esta interface es la que se encarga de hacer las operaciones de la base de datos
+
+
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
@@ -16,8 +20,6 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
     // Guardar una persona
     UserEntity save(UserEntity userEntity);
-
-
 
     Optional<UserEntity> findByName(String name); // Encuentra un usuario por su nombre
 

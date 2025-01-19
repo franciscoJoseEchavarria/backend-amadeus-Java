@@ -4,36 +4,75 @@ package com.eafit.retoamadeus.mappers.implementation;
 import com.eafit.retoamadeus.contracts.request.DestinosRequest;
 import com.eafit.retoamadeus.contracts.responses.DestinosResponse;
 import com.eafit.retoamadeus.entities.DestinosEntity;
+import com.eafit.retoamadeus.entities.UserEntity;
 import com.eafit.retoamadeus.mappers.intefaces.DestinoInterface;
+import com.eafit.retoamadeus.models.DestinosModel;
+import com.eafit.retoamadeus.models.User;
+import com.eafit.retoamadeus.models.UserQuerysModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component // Anotación que indica que esta clase es un componente de Spring
 public class DestinoMapper {
 
-    @Autowired // Inyección de dependencias de Spring para la interfaz DestinoInterface
-    private DestinoInterface destinoInterface;
 
-    // Método que mapea un objeto DestinosRequest a un objeto DestinosEntity
-    public DestinosEntity mapDestinoRequestToDestinoEntity(DestinosRequest destinosRequest) {
-        return destinoInterface.mapDestinoRequestToDestinoEntity(destinosRequest);
+
+
+
+
+   public List <DestinosModel> mapDestinoEntityListToDestinoModelList (List <DestinosEntity> entities) {
+        return   entities.stream() // Inicia un flujo de las entidades
+                .map(this::mapDestinoEntitiesDestinoModel) // Mapea cada entidad a un modelo
+                .collect(Collectors.toList()); // Recoge los resultados en una lista
+        }
+
+    public DestinosModel mapDestinoEntitiesDestinoModel(DestinosEntity destinosEntity) {
+        return DestinosModel.builder() // Inicia el patrón builder para DestinosModel
+                .id(destinosEntity.getId()) // Asigna el ID de la entidad al modelo
+                .destinoAmerica(destinosEntity.getDestinoAmerica()) // Asigna el destino de América de la entidad al modelo
+                .destinoEuropa(destinosEntity.getDestinoEuropa()) // Asigna el destino de Europa de la entidad al modelo
+                .user(destinosEntity.getUserEntity() != null ? // Si el usuario no es nulo
+                        User.builder()
+                                .id(destinosEntity.getUserEntity().getId())
+                                .name(destinosEntity.getUserEntity().getName())
+                                .email(destinosEntity.getUserEntity().getEmail())
+                                .role(destinosEntity.getUserEntity().getRole())
+                                .build() : null)
+                         // Construye el modelo DestinosModel
+
+                .userQuerysModel (destinosEntity.getUserQueryEntity() != null ?
+                        UserQuerysModel.builder()
+                                .id(destinosEntity.getUserQueryEntity().getId())
+                                .query(destinosEntity.getUserQueryEntity().getQuery())
+                                .queryTime(destinosEntity.getUserQueryEntity().getQueryTime())
+                                .environmentType1(destinosEntity.getUserQueryEntity().getEnvironmentType1())
+                                .climateType2(destinosEntity.getUserQueryEntity().getClimateType2())
+                                .accommodationType3(destinosEntity.getUserQueryEntity().getAccommodationType3())
+                                .activityType4(destinosEntity.getUserQueryEntity().getActivityType4())
+                                .stayDuration(destinosEntity.getUserQueryEntity().getStayDuration())
+                                .ageRange(destinosEntity.getUserQueryEntity().getAgeRange())
+                                .build() : null)
+                        .build();
     }
 
-    // Método que mapea un objeto DestinosEntity a un objeto DestinosResponse
-    public DestinosResponse mapDestinosEntityToDestinoResponse(DestinosEntity destinosEntity) {
-        return destinoInterface.mapDestinosEntityToDestinoResponse(destinosEntity);
-    }
 
-    // Método que mapea una lista de objetos DestinosRequest a una lista de objetos DestinosEntity
-    public List<DestinosEntity> mapDestinoRequestListToDestinoEntityList(List<DestinosRequest> destinosRequestList) {
-        return destinoInterface.mapDestinoRequestListToDestinoEntityList(destinosRequestList);
-    }
 
-    // Método que mapea una lista de objetos DestinosEntity a una lista de objetos DestinosResponse
-    public List<DestinosResponse> mapDestinosEntityListToDestinoResponseList(List<DestinosEntity> destinosEntityList) {
-        return destinoInterface.mapDestinosEntityListToDestinoResponseList(destinosEntityList);
+    public DestinosEntity mapDestinoModelToDestinoEntity(DestinosModel destinosModel) {
+        return DestinosEntity.builder() // Inicia el patrón builder para DestinosEntity
+                .id(destinosModel.getId()) // Asigna el ID del modelo a la entidad
+                .destinoAmerica(destinosModel.getDestinoAmerica()) // Asigna el destino de América del modelo a la entidad
+                .destinoEuropa(destinosModel.getDestinoEuropa()) // Asigna el destino de Europa del modelo a la entidad
+                .userEntity(destinosModel.getUser() != null ? // Si el usuario no es nulo
+                        UserEntity.builder()
+                                .id(destinosModel.getUser().getId())
+                                .name(destinosModel.getUser().getName())
+                                .email(destinosModel.getUser().getEmail())
+                                .role(destinosModel.getUser().getRole())
+                                .build() : null)
+                .build(); // Construye la entidad DestinosEntity
     }
 }
 

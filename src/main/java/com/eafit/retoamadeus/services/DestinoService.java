@@ -7,9 +7,11 @@ import com.eafit.retoamadeus.entities.UserEntity;
 import com.eafit.retoamadeus.entities.UserQueryEntity;
 import com.eafit.retoamadeus.logic.Logica;
 import com.eafit.retoamadeus.mappers.implementation.DestinoMapper;
+import com.eafit.retoamadeus.models.DestinosModel;
 import com.eafit.retoamadeus.models.User;
 import com.eafit.retoamadeus.models.UserQuerysModel;
 import com.eafit.retoamadeus.repositories.DestinoRepository;
+import com.eafit.retoamadeus.repositories.UserQueryRepository;
 import com.eafit.retoamadeus.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,47 +31,50 @@ public class DestinoService {
 
     private final UserRepository userRepository;
 
-    public DestinoService(Logica logica, DestinoRepository destinoRepository, DestinoMapper destinoMapper, UserRepository userRepository) {
+    private final UserQueryRepository userQueryRepository;
+
+    public DestinoService(Logica logica, DestinoRepository destinoRepository,
+                          DestinoMapper destinoMapper, UserRepository userRepository, UserQueryRepository userQueryRepository) {
         this.logica = logica;
         this.destinoRepository = destinoRepository;
         this.destinoMapper = destinoMapper;
         this.userRepository = userRepository;
+        this.userQueryRepository = userQueryRepository;
     }
 
-    @Transactional
-    public DestinosResponse save (DestinosRequest destinosRequest) {
-        if (destinosRequest.getUser() == null) {
-            throw new IllegalArgumentException("User cannot be null");
-        }
+   @Transactional
+public DestinosModel save(DestinosModel destinosModel) {
 
-        UserEntity userEntity = userRepository.findById(destinosRequest.getUser().getId())
-                .orElseThrow(() -> new RuntimeException("User not found"));
+    if (destinosModel.getUser() == null) {
+        throw new IllegalArgumentException("User cannot be null");
+    }
 
-        DestinosEntity destinosEntity = logica.logicaNegocio(destinosRequest);
+    UserEntity userEntity = userRepository.findById(destinosModel.getUser().getId())
+            .orElseThrow(() -> new RuntimeException("User not found"));
 
-        destinosEntity.setUserEntity(userEntity);
+    if (destinosModel.getUserQuerysModel() == null || destinosModel.getUserQuerysModel().getId() == null) {
+        throw new IllegalArgumentException("UserQuery cannot be null and must have an ID");
+    }
 
 
 
+    DestinosEntity destinosEntity = destinoMapper.mapDestinoModelToDestinoEntity(destinosModel);
+
+       destinosEntity.setUserEntity(userEntity);
+       UserQueryEntity userQueryEntity = userQueryRepository.findById(destinosModel.getUserQuerysModel().getId())
+               .orElseThrow(() -> new RuntimeException("UserQuery not found"));
+
+        destinosEntity.setUserQueryEntity(userQueryEntity);
 
         destinosEntity = destinoRepository.save(destinosEntity);
 
-        return destinoMapper.mapDestinosEntityToDestinoResponse(destinosEntity);
+    return destinoMapper.mapDestinoEntitiesDestinoModel(destinosEntity);
+}
 
-
-
-    }
-
-    public List<DestinosResponse> findAll() {
-        List<DestinosEntity> destinosEntities = destinoRepository.findAll();
-        return destinosEntities.stream()
-                .map(destinoMapper::mapDestinosEntityToDestinoResponse)
+    public List<DestinosModel> findAll() {
+        return destinoRepository.findAll().stream()
+                .map(destinoMapper::mapDestinoEntitiesDestinoModel)
                 .collect(Collectors.toList());
     }
-
-
-
-
-
 
 }

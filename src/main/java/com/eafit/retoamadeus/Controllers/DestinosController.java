@@ -2,9 +2,15 @@ package com.eafit.retoamadeus.Controllers;
 
 
 import com.eafit.retoamadeus.contracts.request.DestinosRequest;
+import com.eafit.retoamadeus.contracts.request.UserQueryRequest;
 import com.eafit.retoamadeus.contracts.responses.DestinosResponse;
+import com.eafit.retoamadeus.contracts.responses.UserQueryResponse;
 import com.eafit.retoamadeus.entities.DestinosEntity;
+import com.eafit.retoamadeus.logic.Logica;
 import com.eafit.retoamadeus.mappers.implementation.DestinoMapper;
+import com.eafit.retoamadeus.mappers.intefaces.DestinoInterface;
+import com.eafit.retoamadeus.models.DestinosModel;
+import com.eafit.retoamadeus.models.UserQuerysModel;
 import com.eafit.retoamadeus.repositories.DestinoRepository;
 import com.eafit.retoamadeus.services.DestinoService;
 import lombok.RequiredArgsConstructor;
@@ -21,18 +27,33 @@ import java.util.stream.Collectors;
 public class DestinosController {
 
     private final DestinoService destinoService;
+    private final DestinoInterface destinoInterface;
 
-    private final DestinoRepository destinoRepository;
     private final DestinoMapper destinoMapper;
 
-    @PostMapping ("/create")
-    public DestinosResponse createDestino(@RequestBody DestinosRequest destinosRequest) {
-        return destinoService.save(destinosRequest);
+    private final Logica logica;
+
+    @PostMapping("/create")
+    public DestinosResponse createUser(@RequestBody DestinosRequest destinoRequest) {
+
+        if (destinoRequest.getUser() == null) {
+            throw new IllegalArgumentException("faltan seleccionar destinos");
+        }
+
+        DestinosModel destinosModel = (destinoInterface.mapDestinoRequestToDestinoModel(destinoRequest));
+
+        destinosModel = logica.logicaNegocio(destinoRequest);
+
+
+        return destinoInterface.mapDestinoModelToDestinoResponse(destinoService.save(destinosModel));
     }
 
-    @GetMapping ("/all")
-    public List<DestinosResponse> getAllDestinos() {
-        return destinoService.findAll();
+
+
+
+    @GetMapping("/list")
+    public List<DestinosResponse> getDestinos() {
+        return destinoInterface.mapDestinoModelListToDestinoResponseList(destinoService.findAll());
     }
 
 

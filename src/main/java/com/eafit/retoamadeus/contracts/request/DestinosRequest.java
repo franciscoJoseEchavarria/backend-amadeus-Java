@@ -2,6 +2,7 @@ package com.eafit.retoamadeus.contracts.request;
 
 
 import com.eafit.retoamadeus.models.User;
+import com.eafit.retoamadeus.models.UserQuerysModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,4 +23,5 @@ public class DestinosRequest {
     private String pduración;
     private String prangoEdad;
     private User user;
+    private UserQuerysModel userQuerysModel;
 }

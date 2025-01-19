@@ -28,7 +28,4 @@ public interface UserQueryRepository extends JpaRepository<UserQueryEntity,Long>
         // Buscar una entidad UserQueryEntity por el ID del usuario
         List<UserQueryEntity> findByUserEntityId(Long userId);
 
-
-
-
 }

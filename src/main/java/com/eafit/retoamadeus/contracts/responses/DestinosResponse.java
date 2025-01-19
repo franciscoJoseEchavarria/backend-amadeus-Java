@@ -11,4 +11,6 @@ public class DestinosResponse {
 
     private User user;
 
+    private UserQuerysModel userQuerysModel;
+
 }

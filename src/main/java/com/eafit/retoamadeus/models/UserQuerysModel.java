@@ -22,6 +22,9 @@ public class UserQuerysModel {
     private String stayDuration;
     private String ageRange;
     private User user;
+    private DestinosModel destinosModel;
+
+
 }
 
 

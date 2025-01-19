@@ -3,14 +3,18 @@ package com.eafit.retoamadeus.mappers.implementation;
 import com.eafit.retoamadeus.contracts.request.UserQueryRequest;
 import com.eafit.retoamadeus.contracts.request.UserRequest;
 import com.eafit.retoamadeus.contracts.responses.UserResponse;
+import com.eafit.retoamadeus.entities.DestinosEntity;
 import com.eafit.retoamadeus.entities.UserEntity;
 import com.eafit.retoamadeus.entities.UserQueryEntity;
+import com.eafit.retoamadeus.models.DestinosModel;
 import com.eafit.retoamadeus.models.User;
 import com.eafit.retoamadeus.models.UserQuerysModel;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+
 
 @Component
 public class UserQueryMapper {
@@ -41,6 +45,13 @@ public class UserQueryMapper {
                                 .email(userQuerysModel.getUser().getEmail())
                                 .role(userQuerysModel.getUser().getRole())
                                 .build() : null)
+                .destinosEntity(userQuerysModel.getDestinosModel() != null ? // Si los destinos no son nulos
+                        DestinosEntity.builder()
+                                .id(userQuerysModel.getDestinosModel().getId())
+                                .destinoAmerica(userQuerysModel.getDestinosModel().getDestinoAmerica())
+                                .destinoEuropa(userQuerysModel.getDestinosModel().getDestinoEuropa())
+                                .build() : null)
+
                 .build(); // Construye la entidad UserQueryEntity
     }
 
@@ -62,6 +73,12 @@ public class UserQueryMapper {
                                 .name(userQueryEntity.getUserEntity().getName())
                                 .email(userQueryEntity.getUserEntity().getEmail())
                                 .role(userQueryEntity.getUserEntity().getRole())
+                                .build() : null)
+                .destinosModel(userQueryEntity.getDestinosEntity() != null ? // Si la entidad de destinos no es nula
+                        DestinosModel.builder()
+                                .id(userQueryEntity.getDestinosEntity().getId())
+                                .destinoAmerica(userQueryEntity.getDestinosEntity().getDestinoAmerica())
+                                .destinoEuropa(userQueryEntity.getDestinosEntity().getDestinoEuropa())
                                 .build() : null)
                 .build(); // Construye el modelo UserQuerysModel
     }

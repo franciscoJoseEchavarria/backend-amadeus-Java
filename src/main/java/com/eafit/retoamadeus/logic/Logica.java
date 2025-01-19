@@ -6,6 +6,7 @@ import com.eafit.retoamadeus.contracts.request.DestinosRequest;
 import com.eafit.retoamadeus.entities.DestinosEntity;
 import com.eafit.retoamadeus.entities.DestinosEntity;
 import com.eafit.retoamadeus.entities.UserQueryEntity;
+import com.eafit.retoamadeus.models.DestinosModel;
 import com.eafit.retoamadeus.models.UserQuerysModel;
 import com.eafit.retoamadeus.repositories.DestinoRepository;
 import lombok.AllArgsConstructor;
@@ -25,7 +26,7 @@ public class Logica {
     @Autowired
     private DestinoRepository destinoRepository;
 
-    public DestinosEntity logicaNegocio(DestinosRequest destinosRequest) {
+    public DestinosModel logicaNegocio(DestinosRequest destinosRequest) {
 
         String environmentType1 = destinosRequest.getPDestino();
         String climateType2 = destinosRequest.getPclima();
@@ -94,7 +95,11 @@ public class Logica {
             destinoEuropa = "Dubaí";
         }
 
-        return new DestinosEntity(null, destinoAmerica, destinoEuropa);
+        return DestinosModel.builder()
+                .destinoAmerica(destinoAmerica)
+                .destinoEuropa(destinoEuropa)
+                .build();
+
     }
 }
 

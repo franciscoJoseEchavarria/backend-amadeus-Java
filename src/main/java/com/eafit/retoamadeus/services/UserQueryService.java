@@ -1,9 +1,11 @@
 package com.eafit.retoamadeus.services;
 
+import com.eafit.retoamadeus.entities.DestinosEntity;
 import com.eafit.retoamadeus.entities.UserEntity;
 import com.eafit.retoamadeus.entities.UserQueryEntity;
 import com.eafit.retoamadeus.mappers.implementation.UserQueryMapper;
 import com.eafit.retoamadeus.models.UserQuerysModel;
+import com.eafit.retoamadeus.repositories.DestinoRepository;
 import com.eafit.retoamadeus.repositories.UserQueryRepository;
 import com.eafit.retoamadeus.repositories.UserRepository;
 import org.springframework.stereotype.Service;
@@ -19,11 +21,14 @@ public class UserQueryService {
     private final UserQueryRepository userQueryRepository;
     private final UserQueryMapper userQueryMapper;
     private final UserRepository userRepository;
+    private final DestinoRepository destinoRepository;
 
-    public UserQueryService(UserQueryRepository userQueryRepository, UserQueryMapper userQueryMapper, UserRepository userRepository) {
+    public UserQueryService(UserQueryRepository userQueryRepository, UserQueryMapper userQueryMapper,
+                            UserRepository userRepository, DestinoRepository destinoRepository) {
         this.userRepository = userRepository;
         this.userQueryRepository = userQueryRepository;
         this.userQueryMapper = userQueryMapper;
+        this.destinoRepository = destinoRepository;
     }
 
     /**
@@ -45,11 +50,16 @@ public class UserQueryService {
         UserEntity userEntity = userRepository.findById(userQuerysModel.getUser().getId())
                 .orElseThrow(() -> new RuntimeException("User not found"));
         // Convierte el modelo de consulta de usuario a una entidad de consulta de usuario
+
+
+
         UserQueryEntity userQuerysEntity = userQueryMapper.mapUserQueryModelToUserQueryEntity(userQuerysModel);
 
 
         // Asigna la entidad de usuario encontrada a la entidad de consulta de usuario
         userQuerysEntity.setUserEntity(userEntity);
+
+
 
 
 
