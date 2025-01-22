@@ -27,7 +27,7 @@ public class Logica {
     @Autowired
     private DestinoRepository destinoRepository;
 
-    public DestinosModel logicaNegocio(User user, UserQuerysModel userQuerysModel, DestinosRequest destinosRequest) {
+    public DestinosModel logicaNegocio( DestinosRequest destinosRequest) {
 
         String environmentType1 = destinosRequest.getPDestino();
         String climateType2 = destinosRequest.getPclima();
@@ -97,8 +97,6 @@ public class Logica {
         }
 
         return DestinosModel.builder()
-                .user(user)
-                .userQuerysModel(userQuerysModel)
                 .destinoAmerica(destinoAmerica)
                 .destinoEuropa(destinoEuropa)
                 .build();

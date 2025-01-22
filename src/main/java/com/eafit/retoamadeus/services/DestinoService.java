@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -42,40 +43,51 @@ public class DestinoService {
         this.userQueryRepository = userQueryRepository;
     }
 
-        @Transactional
-        public DestinosModel save(DestinosModel destinosModel) {
 
-            if (destinosModel == null) {
-                throw new IllegalArgumentException("DestinosModel cannot be null");
-            }
-
-            if (destinosModel.getUser() == null) {
-                throw new IllegalArgumentException("user no se esta guardando y da nulo");
-            }
-
-            UserEntity userEntity = userRepository.findById(destinosModel.getUser().getId())
-                    .orElseThrow(() -> new RuntimeException("User not found"));
-
-            if (destinosModel.getUserQuerysModel() == null || destinosModel.getUserQuerysModel().getId() == null) {
-                throw new IllegalArgumentException("UserQuery cannot be null and must have an ID");
-            }
+    public DestinosModel crearDestino (DestinosRequest destinosRequest) {
 
 
+        UserEntity userEntity = userRepository.findById(destinosRequest.getUser().getId())
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
 
-            DestinosEntity destinosEntity = destinoMapper.mapDestinoModelToDestinoEntity(destinosModel);
+        UserQueryEntity userQueryEntity = userQueryRepository.findById(destinosRequest.getUserQuerysModel().getId())
+                .orElseThrow(() -> new RuntimeException("Consulta de usuario no encontrada"));
 
-               destinosEntity.setUserEntity(userEntity);
+        DestinosModel destinosModel = logica.logicaNegocio(destinosRequest);
 
+             // Busca si ya existe un destino asociado con la consulta del usuario
+        Optional<DestinosEntity> existingDestino = destinoRepository.findByUserQueryEntity(userQueryEntity);
 
-               UserQueryEntity userQueryEntity = userQueryRepository.findById(destinosModel.getUserQuerysModel().getId())
-                       .orElseThrow(() -> new RuntimeException("UserQuery not found"));
+        // Declara una variable para almacenar la entidad de destino
+        DestinosEntity destinosEntity;
 
-                destinosEntity.setUserQueryEntity(userQueryEntity);
-
-                destinosEntity = destinoRepository.save(destinosEntity);
-
-            return destinoMapper.mapDestinoEntitiesDestinoModel(destinosEntity);
+        // Si existe un destino, lo obtiene
+        if (existingDestino.isPresent()) {
+            destinosEntity = existingDestino.get();
+        } else {
+            // Si no existe, crea una nueva entidad de destino
+            destinosEntity = new DestinosEntity();
         }
+
+        destinosEntity.setDestinoEuropa(destinosModel.getDestinoEuropa());
+        destinosEntity.setDestinoAmerica(destinosModel.getDestinoAmerica());
+        destinosEntity.setUserEntity(userEntity);
+        destinosEntity.setUserQueryEntity(userQueryEntity);
+
+        destinosEntity = destinoRepository.save(destinosEntity);
+
+        return destinoMapper .mapDestinoEntitiesDestinoModel(destinosEntity);
+
+    }
+
+
+    public DestinosModel obtenerDestinoId(Long id) {
+        DestinosEntity destinosEntity = destinoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Destino no encontrado"));
+
+        return destinoMapper.mapDestinoEntitiesDestinoModel(destinosEntity);
+    }
+
 
         public List<DestinosModel> findAll() {
             return destinoRepository.findAll().stream()

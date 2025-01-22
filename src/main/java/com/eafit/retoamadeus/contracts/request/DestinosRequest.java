@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 
 public class DestinosRequest {
 
-    private String pDestino;
+    private String pDestino ;
     private String pclima;
     private String pActividad;
     private String pAlojamiento;
@@ -24,4 +24,6 @@ public class DestinosRequest {
     private String prangoEdad;
     private User user;
     private UserQuerysModel userQuerysModel;
+
+
 }

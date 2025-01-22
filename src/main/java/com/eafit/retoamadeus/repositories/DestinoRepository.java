@@ -14,11 +14,8 @@ import java.util.Optional;
 @Repository
 
 public interface DestinoRepository extends JpaRepository<DestinosEntity,Long> {
+    Optional<DestinosEntity> findByUserQueryEntity(UserQueryEntity userQueryEntity);
 
-
-    Optional<DestinosEntity> findById(Long id);
-
-    DestinosEntity save(DestinosEntity destinosEntity);
 
 
 

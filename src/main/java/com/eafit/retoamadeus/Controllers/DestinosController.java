@@ -14,6 +14,8 @@ import com.eafit.retoamadeus.models.UserQuerysModel;
 import com.eafit.retoamadeus.repositories.DestinoRepository;
 import com.eafit.retoamadeus.services.DestinoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,32 +31,29 @@ public class DestinosController {
     private final DestinoService destinoService;
     private final DestinoInterface destinoInterface;
 
-    private final DestinoMapper destinoMapper;
 
     private final Logica logica;
 
-    @PostMapping("/create")
-    public DestinosResponse createUser(@RequestBody DestinosRequest destinoRequest) {
-
-        if (destinoRequest.getUser() == null) {
-            throw new IllegalArgumentException("faltan seleccionar destinos");
-        }
-
-        DestinosModel destinosModel = (destinoInterface.mapDestinoRequestToDestinoModel(destinoRequest));
-
-
-
-
-        return destinoInterface.mapDestinoModelToDestinoResponse(destinoService.save(destinosModel));
+    @PostMapping ("/create")
+    public ResponseEntity<DestinosModel> crearDestino(@RequestBody DestinosRequest destinosRequest) {
+        DestinosModel destinosModel = destinoService.crearDestino(destinosRequest);
+        return ResponseEntity.status(HttpStatus.CREATED).body(destinosModel);
     }
 
 
 
 
-    @GetMapping("/list")
+    @GetMapping("/encontrar/{id}")
+    public ResponseEntity<DestinosModel> obtenerDestinoId(@PathVariable Long id){
+        return ResponseEntity.ok(destinoService.obtenerDestinoId(id));
+    }
+
+
     public List<DestinosResponse> getDestinos() {
         return destinoInterface.mapDestinoModelListToDestinoResponseList(destinoService.findAll());
     }
+
+
 
 
 

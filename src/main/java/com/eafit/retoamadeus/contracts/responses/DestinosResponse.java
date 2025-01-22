@@ -9,8 +9,5 @@ public class DestinosResponse {
     private String destinoAmerica;
     private String destinoEuropa;
 
-    private User user;
-
-    private UserQuerysModel userQuerysModel;
 
 }
