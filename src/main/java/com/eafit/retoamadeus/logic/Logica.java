@@ -29,12 +29,25 @@ public class Logica {
 
     public DestinosModel logicaNegocio( DestinosRequest destinosRequest) {
 
+
+
+
+
         String environmentType1 = destinosRequest.getPDestino();
-        String climateType2 = destinosRequest.getPclima();
+        String climateType2 = destinosRequest.getPClima();
         String accommodationType3 = destinosRequest.getPActividad();
         String activityType4 = destinosRequest.getPAlojamiento();
-        String stayDuration = destinosRequest.getPduración();
-        String ageRange = destinosRequest.getPrangoEdad();
+        String stayDuration = destinosRequest.getPDuracion();
+        String ageRange = destinosRequest.getPRangoEdad();
+
+
+        System.out.println("environmentType1 = " + environmentType1);
+        System.out.println("climateType2 = " + climateType2);
+        System.out.println("accommodationType3 = " + accommodationType3);
+        System.out.println("activityType4 = " + activityType4);
+        System.out.println("stayDuration = " + stayDuration);
+        System.out.println("ageRange = " + ageRange);
+
 
         String destinoAmerica = null;
         String destinoEuropa = null;
@@ -47,6 +60,7 @@ public class Logica {
 
             destinoAmerica = "Playa del Carmen";
             destinoEuropa = "Santorini";
+
         } else if ("Playa".equals(environmentType1) && "Caluroso".equals(climateType2) &&
                    "Cultura y Museos".equals(accommodationType3) &&
                    "Airbnb".equals(activityType4) &&
@@ -82,11 +96,13 @@ public class Logica {
                    "30-50 años".equals(ageRange)) {
             destinoAmerica = "Banff";
             destinoEuropa = "Zermatt";
-        } else if ("Ciudad".equals(environmentType1) && "Templado".equals(climateType2) &&
+        }
+        else if ("Ciudad".equals(environmentType1) && "Templado".equals(climateType2) &&
                    "Cultura y Museos".equals(accommodationType3) &&
                    "Hotel de Lujo".equals(activityType4) &&
                    "1-2 semanas".equals(stayDuration) &&
                    "Más de 50 años".equals(ageRange)) {
+
             destinoAmerica = "Nueva York";
             destinoEuropa = "París";
         }
@@ -96,6 +112,13 @@ public class Logica {
             destinoEuropa = "Dubaí";
         }
 
+        System.out.println("destinoEuropa = " + destinoEuropa);
+        System.out.println("destinoAmerica = " + destinoAmerica);
+
+
+        
+        
+        
         return DestinosModel.builder()
                 .destinoAmerica(destinoAmerica)
                 .destinoEuropa(destinoEuropa)

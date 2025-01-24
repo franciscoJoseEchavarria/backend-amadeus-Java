@@ -13,6 +13,8 @@ import com.eafit.retoamadeus.models.DestinosModel;
 import com.eafit.retoamadeus.models.UserQuerysModel;
 import com.eafit.retoamadeus.repositories.DestinoRepository;
 import com.eafit.retoamadeus.services.DestinoService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,8 +38,29 @@ public class DestinosController {
 
     @PostMapping ("/create")
     public ResponseEntity<DestinosModel> crearDestino(@RequestBody DestinosRequest destinosRequest) {
+
+        try {
+            // Imprime el contenido del objeto destinosRequest en formato JSON
+            System.out.println("Contenido de destinosRequest en formato JSON: " +
+                    new ObjectMapper().writeValueAsString(destinosRequest));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+
+        System.out.println("PDestino: " + destinosRequest.getPDestino());
+        System.out.println("PClima: " + destinosRequest.getPClima());
+        System.out.println("PActividad: " + destinosRequest.getPActividad());
+        System.out.println("PAlojamiento: " + destinosRequest.getPAlojamiento());
+        System.out.println("PDuracion: " + destinosRequest.getPDuracion());
+        System.out.println("PRangoEdad: " + destinosRequest.getPRangoEdad());
+
         DestinosModel destinosModel = destinoService.crearDestino(destinosRequest);
+
+
         return ResponseEntity.status(HttpStatus.CREATED).body(destinosModel);
+
+
     }
 
 

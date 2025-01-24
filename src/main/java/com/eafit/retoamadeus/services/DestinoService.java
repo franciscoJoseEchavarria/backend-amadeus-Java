@@ -13,6 +13,8 @@ import com.eafit.retoamadeus.models.UserQuerysModel;
 import com.eafit.retoamadeus.repositories.DestinoRepository;
 import com.eafit.retoamadeus.repositories.UserQueryRepository;
 import com.eafit.retoamadeus.repositories.UserRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -60,6 +62,8 @@ public class DestinoService {
 
         // Declara una variable para almacenar la entidad de destino
         DestinosEntity destinosEntity;
+
+
 
         // Si existe un destino, lo obtiene
         if (existingDestino.isPresent()) {
