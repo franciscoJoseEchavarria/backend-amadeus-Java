@@ -35,6 +35,7 @@ public class DestinosRequest {
 
     @JsonProperty("pRangoEdad")
     private String pRangoEdad;
+
     private User user;
     private UserQuerysModel userQuerysModel;
 

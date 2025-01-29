@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity(name = "destinosEntity") // Define la clase como una entidad JPA y la mapea a la tabla 'userQuerysEntities'
 @Data // Genera automáticamente los métodos getter, setter, equals, hashCode y toString
 @NoArgsConstructor // Genera un constructor sin argumentos
@@ -34,6 +36,9 @@ public class DestinosEntity {
     @OneToOne ( cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "userQuery_id", nullable = false)
     private UserQueryEntity userQueryEntity;
+
+    @OneToMany  (mappedBy = "destinosEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    List <DetallesDestinosEntity> detallesDestinoEntity;
 
     // se añade el constructor con los atributos de la clase
 

@@ -8,17 +8,13 @@ import java.util.List;
 import java.util.Optional;
 
 
-// esta interface es la que se encarga de hacer las operaciones de la base de datos
+// esta interface es la que se encarga de hacer las operaciones de la base de datos - No se debe borrar
 
 
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
 
-    // Buscar una persona por cédula
-
-
-    // Guardar una persona
     UserEntity save(UserEntity userEntity);
 
     Optional<UserEntity> findByName(String name); // Encuentra un usuario por su nombre
@@ -28,6 +24,10 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
     Optional<UserEntity> findByNameAndEmail(String name, String email); // Encuentra un usuario por su nombre y correo electrónico
 
     boolean existsByEmail(String email); // Verifica si existe un usuario con un correo electrónico específic Se debe revisar este código
+
+    // Buscar una persona por cédula
+
+
 
 
 }

@@ -48,13 +48,6 @@ public class DestinosController {
         }
 
 
-        System.out.println("PDestino: " + destinosRequest.getPDestino());
-        System.out.println("PClima: " + destinosRequest.getPClima());
-        System.out.println("PActividad: " + destinosRequest.getPActividad());
-        System.out.println("PAlojamiento: " + destinosRequest.getPAlojamiento());
-        System.out.println("PDuracion: " + destinosRequest.getPDuracion());
-        System.out.println("PRangoEdad: " + destinosRequest.getPRangoEdad());
-
         DestinosModel destinosModel = destinoService.crearDestino(destinosRequest);
 
 

@@ -27,22 +27,21 @@ import java.util.stream.Collectors;
 public class DestinoService {
 
     private final Logica logica;
-
     private final DestinoRepository destinoRepository;
-
     private final DestinoMapper destinoMapper;
-
     private final UserRepository userRepository;
-
     private final UserQueryRepository userQueryRepository;
+    private final DetallesDestinoService detallesDestinoService;
 
     public DestinoService(Logica logica, DestinoRepository destinoRepository,
-                          DestinoMapper destinoMapper, UserRepository userRepository, UserQueryRepository userQueryRepository) {
+                          DestinoMapper destinoMapper, UserRepository userRepository, UserQueryRepository userQueryRepository
+                          , DetallesDestinoService detallesDestinoService) {
         this.logica = logica;
         this.destinoRepository = destinoRepository;
         this.destinoMapper = destinoMapper;
         this.userRepository = userRepository;
         this.userQueryRepository = userQueryRepository;
+        this.detallesDestinoService = detallesDestinoService;
     }
 
 
