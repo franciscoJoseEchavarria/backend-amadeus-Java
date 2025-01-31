@@ -2,11 +2,22 @@ package com.eafit.retoamadeus.logic;
 
 import com.eafit.retoamadeus.models.DestinosModel;
 import com.eafit.retoamadeus.models.DetallesDestinosModel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+
+@Data
+
+@Builder
+@Service
 
 public class LogicaDetallesDestinos {
 
@@ -58,11 +69,11 @@ public class LogicaDetallesDestinos {
         if (destinosMap.containsKey(destinoEuropa)) {
             String[] detallesEuropa = destinosMap.get(destinoEuropa);
             DetallesDestinosModel detalleEuropa = DetallesDestinosModel.builder()
-                    .nombreDestino(destinoEuropa)
-                    .img(detallesEuropa[0])
-                    .pais(detallesEuropa[1])
-                    .idioma(detallesEuropa[2])
-                    .lugarImperdible(detallesEuropa[3])
+                    .nombreDestino(detallesEuropa[0])
+                    .img(detallesEuropa[1])
+                    .pais(detallesEuropa[2])
+                    .idioma(detallesEuropa[3])
+                    .lugarImperdible(detallesEuropa[4])
                     .destinosModel(destinosModel)
                     .build();
             detallesDestinosModels.add(detalleEuropa);

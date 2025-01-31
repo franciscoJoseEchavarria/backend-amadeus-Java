@@ -29,7 +29,7 @@ public class DetallesDestinosEntity {
     @Column (nullable = false)
     private String lugarImperdible;
 
-    @ManyToOne ( cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "Det-destino-id", nullable = false)
     private DestinosEntity destinosEntity;
 

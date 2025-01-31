@@ -79,6 +79,8 @@ public class DestinoService {
 
         destinosEntity = destinoRepository.save(destinosEntity);
 
+        detallesDestinoService.crearDetallesDestinos(destinosEntity, destinosRequest);
+
         return destinoMapper .mapDestinoEntitiesDestinoModel(destinosEntity);
 
     }

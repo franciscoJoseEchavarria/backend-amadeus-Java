@@ -37,13 +37,22 @@ public class UserEntity {
     @Column(nullable = false)
     private LocalDateTime updatedAt;
 
-    @OneToMany (mappedBy = "userEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<UserQueryEntity> userQueryEntity;; // Campo que referencia a la entidad UserEntity
+    @OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<UserQueryEntity> userQueryEntity;
+    ; // Campo que referencia a la entidad UserEntity
 
-    @OneToMany (mappedBy = "userEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<DestinosEntity> destinosEntity;
-}
 
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                // Excluir 'queries' para evitar recursión infinita
+                '}';
+    }
+}
 
 /**
  UserRepository y UserEntity tienen roles diferentes en la interacción con la base de datos:

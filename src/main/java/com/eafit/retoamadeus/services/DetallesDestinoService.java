@@ -66,12 +66,65 @@ public class DetallesDestinoService {
             // Guardar la entidad en la base de datos
             detallesDestinosEntity = detallesDestinoRepository.save(detallesDestinosEntity);
 
+            System.out.println(" detalles destino Models " + detallesDestinosModels);
+            System.out.println("detallesDestinosEntity = " + detallesDestinosEntity);
+
             // Mapear la entidad guardada de vuelta al modelo
             detallesGuardados.add(detallesdestinosMapper.mapDetallesDestinoEntityToDetallesDestinoModel(detallesDestinosEntity));
+
         }
 
         return detallesGuardados;
     }
+
+
+    public List <DetallesDestinosModel> findAllDetallesDestinos() {
+        List<DetallesDestinosEntity> detallesDestinosEntities = detallesDestinoRepository.findAll();
+        List<DetallesDestinosModel> detallesDestinosModels = new ArrayList<>();
+
+        for (DetallesDestinosEntity detallesDestinosEntity : detallesDestinosEntities) {
+            detallesDestinosModels.add(detallesdestinosMapper.mapDetallesDestinoEntityToDetallesDestinoModel(detallesDestinosEntity));
+        }
+
+        return detallesDestinosModels;
+    }
+
+    public DetallesDestinosModel findDetallesDestinoById(Long id) {
+        DetallesDestinosEntity detallesDestinosEntity = detallesDestinoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Detalles destino no encontrado"));
+
+        return detallesdestinosMapper.mapDetallesDestinoEntityToDetallesDestinoModel(detallesDestinosEntity);
+    }
+
+    public DetallesDestinosModel updateDetallesDestino(Long id, DetallesDestinosModel detallesDestinosModel) {
+        DetallesDestinosEntity detallesDestinosEntity = detallesDestinoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Detalles destino no encontrado"));
+
+        detallesDestinosEntity.setNombreDestino(detallesDestinosModel.getNombreDestino());
+        detallesDestinosEntity.setImg(detallesDestinosModel.getImg());
+        detallesDestinosEntity.setPais(detallesDestinosModel.getPais());
+        detallesDestinosEntity.setIdioma(detallesDestinosModel.getIdioma());
+        detallesDestinosEntity.setLugarImperdible(detallesDestinosModel.getLugarImperdible());
+
+        detallesDestinosEntity = detallesDestinoRepository.save(detallesDestinosEntity);
+
+        return detallesdestinosMapper.mapDetallesDestinoEntityToDetallesDestinoModel(detallesDestinosEntity);
+    }
+
+
+    public void deleteDetallesDestinoById(Long id) {
+        if (!detallesDestinoRepository.existsById(id)) {
+            throw new RuntimeException("Detalles destino no encontrado");
+        }
+        detallesDestinoRepository.deleteById(id);
+    }
+
+
+    public void deleteAllDetallesDestinos() {
+        detallesDestinoRepository.deleteAll();
+    }
+
+
 }
 
     /** Meotodo para crear detalle destino

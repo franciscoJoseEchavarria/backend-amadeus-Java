@@ -71,7 +71,17 @@ public class UserQueryEntity {
     protected void onUpdate() {
         updatedAt = LocalDateTime.now();
     }
+
+    @Override
+    public String toString() {
+        return "UserQueryEntity{" +
+                "id=" + id +
+                ", query='" + query + '\'' +
+                // Excluir 'user' para evitar recursión infinita
+                '}';
+    }
 }
+
 
 
 
