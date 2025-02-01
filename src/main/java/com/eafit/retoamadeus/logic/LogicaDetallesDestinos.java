@@ -36,14 +36,14 @@ public class LogicaDetallesDestinos {
         destinosMap.put("Banff", new String[]{destinoAmerica, "img1", "Cánada", "ingles y Francés", "Lago Moraine"});
         destinosMap.put("Nueva York", new String[]{destinoAmerica, "img1", "EEUU", "Inglés", "Estatua de la Libertad"});
         destinosMap.put("Santorini", new String[]{"Santorini", "img1", "Grecia", "Griego", "Oia"});
-        destinosMap.put("Barcelona", new String[]{"Barcelona", "img1", "España", "Español", "Sagrada Familia"});
+        destinosMap.put("Barcelona", new String[]{"Barcelona", "/assets/img/Barcelona.jpg", "España", "Español", "Sagrada Familia"});
         destinosMap.put("Lisboa", new String[]{"Lisboa", "img1", "Portugal", "Portugués", "Torre de Belém"});
         destinosMap.put("Interlaken", new String[]{"Interlaken", "img1", "Suiza", "Alemán", "Jungfrau"});
         destinosMap.put("Granada", new String[]{"Granada", "img1", "España", "Español", "Alhambra"});
         destinosMap.put("Zermatt", new String[]{"Zermatt", "img1", "Suiza", "Alemán", "Matterhorn"});
         destinosMap.put("París", new String[]{"París", "img1", "Francia", "Francés", "Torre Eiffel"});
-        destinosMap.put("Bora Bora", new String[]{"Bora Bora", "img1", "Palmas", "Español", "Matterhorn"});
-        destinosMap.put("Dubái", new String[]{"Dubaí", "img1", "Francia", "Francés", "Torre Eiffel"});
+        destinosMap.put("Bora Bora", new String[]{"Bora Bora", "/assets/img/BoraBora.jpg", "Palmas", "Español", "Matterhorn"});
+        destinosMap.put("Dubái", new String[]{"Dubaí", "/assets/img/Dubai.jpg", "Francia", "Francés", "Torre Eiffel"});
 
 
 
