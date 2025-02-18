@@ -108,7 +108,7 @@ public class UserService {
     }
     userRepository.deleteById(id);
     return userMapper.mapUserEntityToUser(UserEntityOptional.get());
-}
+    }
 
   public List<User> createMultipleUsers(List<User> users) {
     if (users == null || users.isEmpty()) {
