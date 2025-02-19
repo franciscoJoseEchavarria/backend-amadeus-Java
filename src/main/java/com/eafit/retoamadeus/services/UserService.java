@@ -140,20 +140,6 @@ public class UserService {
         return userEntityOptional.map(userMapper::mapUserEntityToUser)
                 .orElseThrow(() -> new InvalidUserDataException("User with id " + id + " not found"));
     }
-   /* public User authenticate(User user) {
-        // Busca un UserEntity en el repositorio por el correo electrónico proporcionado
-        Optional<UserEntity> userEntityOptional = userRepository.findByEmail(user.getEmail());
-
-        // Verifica si el Optional está vacío, lo que significa que no se encontró un usuario con ese correo
-        if (userEntityOptional.isEmpty()) {
-            // Imprime un mensaje en la consola indicando que no se encontró un usuario con el correo proporcionado
-            System.out.println("El usuario con correo = " + user.getEmail() + " no existe");
-        }
-
-        // Mapea el UserEntity encontrado a un objeto User y lo retorna
-        return userMapper.mapUserEntityToUser(userEntityOptional.get());
-    }
-    */
 
 }
 

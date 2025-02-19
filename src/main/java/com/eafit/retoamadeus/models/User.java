@@ -1,5 +1,17 @@
-package com.eafit.retoamadeus.models;
+/**
+ * Esta clase se encarga de representar lo modelos.
+ * En la clase UserService, se utiliza esta clase modelos para realizar las operaciones de 
+ * la base de datos. Aqui se pasa al userModel, luego a la entidad, 
+ * se guarda a la entidad y regresa al UserModel
+ *
+ * en los controllers se utiliza el modelo para mapear los request y los responses, 
+ * atraves de los servicios que se guaradan en la BD
+ * @author  Francisco Echavarría
+ * @version 1.0
+ */
 
+
+package com.eafit.retoamadeus.models;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
@@ -13,13 +25,13 @@ import java.util.List;
 
 public class User {
 
-    private Long id;
+    private Long id; // Identificador único del usuario
 
-    private String name;
+    private String name; // Nombre del usuario
 
-    private String email;
+    private String email; // Correo electrónico del usuario
 
-    private RoleUser role;
+    private RoleUser role; // Rol del usuario, que puede ser un valor de la enumeración RoleUser
 
 
 

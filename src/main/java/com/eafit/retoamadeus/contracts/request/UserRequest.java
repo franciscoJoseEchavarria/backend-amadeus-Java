@@ -1,3 +1,11 @@
+/**
+ * esta clase se encarga de recibir los datos de la petición del cliente.
+ * esta clase es tomada directamente en el controlador para hacer la DTO a los modelos, entidades, modelos y response.
+ * @author  Francisco Echavarría
+ * @version 1.0
+ */
+
+
 package com.eafit.retoamadeus.contracts.request;
 
 import com.eafit.retoamadeus.models.RoleUser;
