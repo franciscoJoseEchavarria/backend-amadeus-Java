@@ -6,12 +6,19 @@ import com.eafit.retoamadeus.entities.UserEntity;
 import com.eafit.retoamadeus.models.User;
 import org.springframework.stereotype.Component;
 
+/**
+ * Esta clase representa la entidad de usuario en la base de datos.
+ * Se utiliza para mapear los datos de la tabla "users" a un objeto Java. "principalmente utilizado en los servicios, no el los controladores. DTO"
+ * Son interfaces que definen métodos para convertir entre diferentes representaciones de datos.
+Utilizan herramientas como MapStruct para generar automáticamente el código de mapeo, en este userMapper no se utiliza herramientas Mapstructure, pero en las interfaces si, distintas formas de hacer lo mismo.
+Ejemplos en tu proyecto: UserMapper, UserInterface.
+ * @autor Francisco Echavarría
+ * @version 1.0
+ */
+
 @Component
 
 public class UserMapper {
-
-
-
 
     // Mapea un objeto User a un objeto UserEntity
     public UserEntity mapUserModelToUserEntity(User user) {

@@ -9,6 +9,15 @@ import org.mapstruct.Mapping;
 
 import java.util.List;
 
+/**
+ * Esta clase representa la entidad de usuario en la base de datos.
+ * Se utiliza para mapear los datos de la tabla "users" a un objeto Java. Utilizado en los controladores.
+ * 
+ * @autor Francisco Echavarría
+ * @version 1.0
+ */
+
+
 @Mapper(componentModel = "spring") // Indica que esta interfaz es un mapper de MapStruct y que debe ser gestionado por Spring
 public interface UserInterface {
 
@@ -58,40 +67,3 @@ public interface UserInterface {
 
 
 
-/** package com.eafit.retoamadeus.mappers.intefaces;
-
-import com.eafit.retoamadeus.contracts.request.UserRequest;
-import com.eafit.retoamadeus.contracts.responses.UserResponse;
-import com.eafit.retoamadeus.entities.UserEntity;
-import com.eafit.retoamadeus.models.User;
-import org.mapstruct.Mapper;
-
-import java.util.List;
-
-@Mapper(componentModel = "spring")
-public interface UserInterface {
-
-    UserEntity mapUserRequestToUserEntity(UserRequest userRequest);
-
-    UserEntity mapUserToUserEntity(User user);
-
-    User mapUserEntityToUser(UserEntity userEntity);
-
-    User mapUserRequestToUser(UserRequest userRequest);
-
-    UserRequest mapUserToUserRequest(User user);
-
-    UserResponse mapUserToUserResponse(User user);
-
-
-    UserEntity toUserEntity(User user);
-
-    UserResponse toUserResponse(UserEntity userEntity);
-
-    UserEntity toUserEntity(UserResponse userResponse);
-
-    List<User> mapUserEntityListToUserModelList(List<UserEntity> entity);
-
-    // Mapea una lista de objetos de tipo User a una lista de objetos de tipo UserResponse
-    List<UserResponse> mapUserModelListToUserResponseList(List<User> entity);
-} **/

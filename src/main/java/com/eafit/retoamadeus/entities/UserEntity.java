@@ -8,6 +8,14 @@ import lombok.Data;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * Esta clase representa la entidad de usuario en la base de datos.
+ * Se utiliza para mapear los datos de la tabla "users" a un objeto Java.
+ * 
+ * @autor Francisco Echavarría
+ * @version 1.0
+ */
+
 @Entity
 @Table(name = "users") // Define la clase como una entidad JPA y la mapea a la tabla 'users'
 @Data // Genera automáticamente los métodos getter, setter, equals, hashCode y toString
