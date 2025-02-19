@@ -47,22 +47,20 @@ public class DestinoService {
 
     public DestinosModel crearDestino (DestinosRequest destinosRequest) {
 
-
+        //encuentra primero el usuario si existe en la BD
         UserEntity userEntity = userRepository.findById(destinosRequest.getUser().getId())
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-
+        //encuentra la consulta del usuario si existe en la BD
         UserQueryEntity userQueryEntity = userQueryRepository.findById(destinosRequest.getUserQuerysModel().getId())
                 .orElseThrow(() -> new RuntimeException("Consulta de usuario no encontrada"));
-
+        // transforma los requerimientos del usuario en un modelo
         DestinosModel destinosModel = logica.logicaNegocio(destinosRequest);
 
-             // Busca si ya existe un destino asociado con la consulta del usuario
+        // Busca si ya existe un destino asociado con la consulta del usuario
         Optional<DestinosEntity> existingDestino = destinoRepository.findByUserQueryEntity(userQueryEntity);
 
         // Declara una variable para almacenar la entidad de destino
         DestinosEntity destinosEntity;
-
-
 
         // Si existe un destino, lo obtiene
         if (existingDestino.isPresent()) {
@@ -71,17 +69,18 @@ public class DestinoService {
             // Si no existe, crea una nueva entidad de destino
             destinosEntity = new DestinosEntity();
         }
-
+        // asginar los valores al destino
         destinosEntity.setDestinoEuropa(destinosModel.getDestinoEuropa());
         destinosEntity.setDestinoAmerica(destinosModel.getDestinoAmerica());
         destinosEntity.setUserEntity(userEntity);
         destinosEntity.setUserQueryEntity(userQueryEntity);
 
+        // Guarda el destino en la BD
         destinosEntity = destinoRepository.save(destinosEntity);
-
+        
         detallesDestinoService.crearDetallesDestinos(destinosEntity, destinosRequest);
 
-        return destinoMapper .mapDestinoEntitiesDestinoModel(destinosEntity);
+        return destinoMapper.mapDestinoEntitiesDestinoModel(destinosEntity);
 
     }
 
