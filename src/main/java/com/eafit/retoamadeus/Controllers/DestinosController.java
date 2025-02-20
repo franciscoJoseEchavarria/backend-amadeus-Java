@@ -51,12 +51,12 @@ public class DestinosController {
         return ResponseEntity.status(HttpStatus.CREATED).body(destinosModel);
     }
 
-    @GetMapping("/encontrar/{id}")
+    @GetMapping("/encontrare/{id}")
     public ResponseEntity<DestinosModel> obtenerDestinoId(@PathVariable Long id){
         return ResponseEntity.ok(destinoService.obtenerDestinoId(id));
     }
 
-
+    @GetMapping("/list")
     public List<DestinosResponse> getDestinos() {
         return destinoInterface.mapDestinoModelListToDestinoResponseList(destinoService.findAll());
     }

@@ -12,6 +12,7 @@ import lombok.*;
 import java.util.List;
 
 import org.mapstruct.control.MappingControl;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -108,6 +109,12 @@ public class UserService {
     }
     userRepository.deleteById(id);
     return userMapper.mapUserEntityToUser(UserEntityOptional.get());
+    }
+
+
+    @Transactional
+    public void deleteAllUsers() {
+        userRepository.deleteAllInBatch();
     }
 
   public List<User> createMultipleUsers(List<User> users) {

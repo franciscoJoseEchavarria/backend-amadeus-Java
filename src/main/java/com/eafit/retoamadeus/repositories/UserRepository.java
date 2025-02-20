@@ -83,4 +83,6 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
     boolean existsByEmail(String email); // Verifica si existe un usuario con un correo electrónico específic Se debe revisar este código
     // Buscar una persona por cédula
+
+    
 }

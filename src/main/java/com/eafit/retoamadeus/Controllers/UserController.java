@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 @RestController
 @RequestMapping("/api/user")
 @RequiredArgsConstructor
@@ -65,6 +66,12 @@ public class UserController {
     @DeleteMapping("/delete/{id}")
     public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
+    }
+
+
+    @DeleteMapping("/deleteAll")
+    public void deleteAllUsers() {
+        userService.deleteAllUsers();
     }
 
     @PostMapping("/createMultipleUsers")
