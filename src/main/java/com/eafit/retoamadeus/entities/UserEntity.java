@@ -62,20 +62,3 @@ public class UserEntity {
     }
 }
 
-/**
- UserRepository y UserEntity tienen roles diferentes en la interacción con la base de datos:
- UserRepository: Es una interfaz que extiende JpaRepository y proporciona métodos para
- realizar operaciones CRUD (crear, leer, actualizar, eliminar) sobre
- la entidad UserEntity. UserRepository actúa como un intermediario
- entre la aplicación y la base de datos, permitiendo realizar
- consultas y manipulaciones de datos sin necesidad de escribir SQL
- manualmente.
- UserEntity: Es una clase que representa una tabla en la base de datos.
- Cada instancia de UserEntity corresponde a una fila en la tabla.
- Los campos de la clase UserEntity corresponden a las columnas de la
- tabla. Esta clase se utiliza para mapear los datos de la base de
- datos a objetos Java y viceversa.
- En resumen, UserEntity define la estructura de los datos que se
- almacenan en la base de datos, mientras que UserRepository
- proporciona los métodos para interactuar con esos datos.
- */

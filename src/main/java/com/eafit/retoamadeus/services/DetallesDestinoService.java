@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class DetallesDestinoService {
@@ -109,6 +110,14 @@ public class DetallesDestinoService {
         detallesDestinosEntity = detallesDestinoRepository.save(detallesDestinosEntity);
 
         return detallesdestinosMapper.mapDetallesDestinoEntityToDetallesDestinoModel(detallesDestinosEntity);
+    }
+
+
+    public List<DetallesDestinosModel> findDetallesByDestinoId(Long destinoId) {
+        List<DetallesDestinosEntity> entities = detallesDestinoRepository.findByDestinosEntity_Id(destinoId);
+        return entities.stream()
+                .map(detallesdestinosMapper::mapDetallesDestinoEntityToDetallesDestinoModel)
+                .collect(Collectors.toList());
     }
 
 

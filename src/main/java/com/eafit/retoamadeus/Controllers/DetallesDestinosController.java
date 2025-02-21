@@ -21,7 +21,7 @@ public class DetallesDestinosController {
     private final DetallesDestinoService detallesDestinoService;
     private final DetallesDestinoInterface detallesDestinoInterface;
 
-
+  // obtener una lista de todos los detalles de los destinos
   @GetMapping("/list")
     public List<DetallesDestinosResponse> getDetallesDestinos() {
       return detallesDestinoInterface.mapDetallesDestinosModelListToDetallesDestinosResponseList
@@ -52,6 +52,18 @@ public class DetallesDestinosController {
     public void deleteAllDetallesDestinos() {
         detallesDestinoService.deleteAllDetallesDestinos();
     }
+
+
+
+    // obtener una lista de acuerdo a los destino que se encuentran en la tabla destino
+    @GetMapping("/destino/{destinoId}")
+    public List<DetallesDestinosResponse> getDetallesByDestinoId(@PathVariable Long destinoId) {
+        List<DetallesDestinosModel> detalles = detallesDestinoService.findDetallesByDestinoId(destinoId);
+        return detallesDestinoInterface.mapDetallesDestinosModelListToDetallesDestinosResponseList(detalles);
+    }
+
+
+
 
 
 }

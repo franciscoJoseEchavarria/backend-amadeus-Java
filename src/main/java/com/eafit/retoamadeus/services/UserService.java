@@ -114,7 +114,7 @@ public class UserService {
 
     @Transactional
     public void deleteAllUsers() {
-        userRepository.deleteAllInBatch();
+        userRepository.deleteAll();
     }
 
   public List<User> createMultipleUsers(List<User> users) {

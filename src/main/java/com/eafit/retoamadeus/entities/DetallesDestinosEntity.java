@@ -15,6 +15,8 @@ import lombok.NoArgsConstructor;
 
 
 public class DetallesDestinosEntity {
+
+
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
