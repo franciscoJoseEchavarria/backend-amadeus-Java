@@ -44,7 +44,7 @@ public class DestinoService {
         this.detallesDestinoService = detallesDestinoService;
     }
 
-
+    @Transactional
     public DestinosModel crearDestino (DestinosRequest destinosRequest) {
 
         //encuentra primero el usuario si existe en la BD
@@ -77,7 +77,9 @@ public class DestinoService {
 
         // Guarda el destino en la BD
         destinosEntity = destinoRepository.save(destinosEntity);
-        
+        destinoRepository.flush();
+
+        //crear los detalles de los destinos
         detallesDestinoService.crearDetallesDestinos(destinosEntity, destinosRequest);
 
         return destinoMapper.mapDestinoEntitiesDestinoModel(destinosEntity);

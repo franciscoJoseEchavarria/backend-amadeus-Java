@@ -10,6 +10,8 @@ import com.eafit.retoamadeus.models.DestinosModel;
 import com.eafit.retoamadeus.models.DetallesDestinosModel;
 import com.eafit.retoamadeus.repositories.DestinoRepository;
 import com.eafit.retoamadeus.repositories.DetallesDestinoRepository;
+import jakarta.transaction.TransactionScoped;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -25,6 +27,8 @@ public class DetallesDestinoService {
     private final DetallesDestinoRepository detallesDestinoRepository;
     private final DetallesdestinosMapper detallesdestinosMapper;
 
+
+
     public DetallesDestinoService(LogicaDetallesDestinos logicaDetallesDestinos,
                                   DestinoRepository destinoRepository,
                                   DetallesDestinoRepository detallesDestinoRepository,
@@ -37,6 +41,9 @@ public class DetallesDestinoService {
         this.detallesdestinosMapper = detallesdestinosMapper;
     }
 
+
+    //crea los detalles de los Destinos
+    @Transactional
     public List<DetallesDestinosModel> crearDetallesDestinos (DestinosEntity destinosEntity,
                                                              DestinosRequest destinosRequest) {
 
@@ -112,7 +119,7 @@ public class DetallesDestinoService {
         return detallesdestinosMapper.mapDetallesDestinoEntityToDetallesDestinoModel(detallesDestinosEntity);
     }
 
-
+    // Metodo para obtener detalles de un destino por su id
     public List<DetallesDestinosModel> findDetallesByDestinoId(Long destinoId) {
         List<DetallesDestinosEntity> entities = detallesDestinoRepository.findByDestinosEntity_Id(destinoId);
         return entities.stream()
@@ -136,41 +143,4 @@ public class DetallesDestinoService {
 
 }
 
-    /** Meotodo para crear detalle destino
-     * Importante leer este metodo con el anterior para comprende aún mejor
-    public DetallesDestinosModel crearDetallesDestinos (DestinosModel destinosModel, DestinosEntity destinosEntity,
-                                                        DestinosRequest destinosRequest) {
-
-        DestinosEntity destino = destinoRepository.findById(destinosEntity.getId())
-                .orElseThrow(() -> new RuntimeException("Destino no encontrado"));
-
-       List <DetallesDestinosModel> detallesdestinosModel = logicaDetallesDestinos.obtenerDetalleDestinos(logica.logicaNegocio(destinosRequest));
-
-        DetallesDestinosEntity detallesDestinosEntity = null;
-
-        detallesDestinosEntity.setNombreDestino(detallesdestinosModel.get(0).getNombreDestino());
-        detallesDestinosEntity.setImg(detallesdestinosModel.get(0).getImg());
-        detallesDestinosEntity.setPais(detallesdestinosModel.get(0).getPais());
-        detallesDestinosEntity.setIdioma(detallesdestinosModel.get(0).getIdioma());
-        detallesDestinosEntity.setLugarImperdible(detallesdestinosModel.get(0).getLugarImperdible());
-        detallesDestinosEntity.setDestinosEntity(destino);
-
-        detallesDestinoRepository.save(detallesDestinosEntity);
-
-        detallesDestinosEntity.setDestinosEntity(destino);
-
-        detallesDestinosEntity.setNombreDestino(detallesdestinosModel.get(1).getNombreDestino());
-        detallesDestinosEntity.setImg(detallesdestinosModel.get(1).getImg());
-        detallesDestinosEntity.setPais(detallesdestinosModel.get(1).getPais());
-        detallesDestinosEntity.setIdioma(detallesdestinosModel.get(1).getIdioma());
-        detallesDestinosEntity.setLugarImperdible(detallesdestinosModel.get(1).getLugarImperdible());
-        detallesDestinosEntity.setDestinosEntity(destino);
-
-        detallesDestinosEntity = detallesDestinoRepository.save(detallesDestinosEntity);
-
-
-        return detallesdestinosMapper.mapDetallesDestinoEntityToDetallesDestinoModel(detallesDestinosEntity);
-
-    }
-    */
 
