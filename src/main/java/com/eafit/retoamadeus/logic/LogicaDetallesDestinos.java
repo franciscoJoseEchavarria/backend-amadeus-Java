@@ -27,6 +27,8 @@ public class LogicaDetallesDestinos {
         String destinoAmerica = destinosModel.getDestinoAmerica();
         String destinoEuropa = destinosModel.getDestinoEuropa();
 
+
+        // ciidad {ciudad, ruta de imagen frontend, pais, idioma, lugar imperdible}
         Map<String, String[]> destinosMap = new HashMap<>();
         destinosMap.put("Playa del Carmen", new String[]{destinoAmerica, "img1", "México", "Español", "Castillo San Felipe"});
         destinosMap.put("Cartagena", new String[]{destinoAmerica, "img1", "Colombia", "Español", "Murallas de Cartagena"});
@@ -43,7 +45,7 @@ public class LogicaDetallesDestinos {
         destinosMap.put("Zermatt", new String[]{"Zermatt", "img1", "Suiza", "Alemán", "Matterhorn"});
         destinosMap.put("París", new String[]{"París", "img1", "Francia", "Francés", "Torre Eiffel"});
         destinosMap.put("Bora Bora", new String[]{"Bora Bora", "/assets/img/BoraBora.jpg", "Palmas", "Español", "Matterhorn"});
-        destinosMap.put("Dubái", new String[]{"Dubaí", "/assets/img/Dubai.jpg", "Francia", "Francés", "Torre Eiffel"});
+        destinosMap.put("Dubái", new String[]{"Dubaí", "/assets/img/Dubai.jpg", "Emiratos Árabes Unidos", "árabe", "Burj Khalifa"});
 
 
 
