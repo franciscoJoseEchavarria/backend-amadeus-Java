@@ -30,22 +30,22 @@ public class LogicaDetallesDestinos {
 
         // ciidad {ciudad, ruta de imagen frontend, pais, idioma, lugar imperdible}
         Map<String, String[]> destinosMap = new HashMap<>();
-        destinosMap.put("Playa del Carmen", new String[]{destinoAmerica, "img1", "México", "Español", "Castillo San Felipe"});
-        destinosMap.put("Cartagena", new String[]{destinoAmerica, "img1", "Colombia", "Español", "Murallas de Cartagena"});
-        destinosMap.put("Rio de Janeiro", new String[]{destinoAmerica, "img1", "Beasil", "Portugues", "Cristo Redentor"});
-        destinosMap.put("Bariloche", new String[]{destinoAmerica, "img1", "Argentina", "Español", "Cerro Catedral"});
-        destinosMap.put("Cusco", new String[]{destinoAmerica, "img1", "Perú", "Español", "Machu Picchu"});
-        destinosMap.put("Banff", new String[]{destinoAmerica, "img1", "Cánada", "ingles y Francés", "Lago Moraine"});
-        destinosMap.put("Nueva York", new String[]{destinoAmerica, "img1", "EEUU", "Inglés", "Estatua de la Libertad"});
-        destinosMap.put("Santorini", new String[]{"Santorini", "img1", "Grecia", "Griego", "Oia"});
-        destinosMap.put("Barcelona", new String[]{"Barcelona", "/assets/img/Barcelona.jpg", "España", "Español", "Sagrada Familia"});
-        destinosMap.put("Lisboa", new String[]{"Lisboa", "img1", "Portugal", "Portugués", "Torre de Belém"});
-        destinosMap.put("Interlaken", new String[]{"Interlaken", "img1", "Suiza", "Alemán", "Jungfrau"});
-        destinosMap.put("Granada", new String[]{"Granada", "img1", "España", "Español", "Alhambra"});
-        destinosMap.put("Zermatt", new String[]{"Zermatt", "img1", "Suiza", "Alemán", "Matterhorn"});
-        destinosMap.put("París", new String[]{"París", "img1", "Francia", "Francés", "Torre Eiffel"});
-        destinosMap.put("Bora Bora", new String[]{"Bora Bora", "/assets/img/BoraBora.jpg", "Palmas", "Español", "Matterhorn"});
-        destinosMap.put("Dubái", new String[]{"Dubaí", "/assets/img/Dubai.jpg", "Emiratos Árabes Unidos", "árabe", "Burj Khalifa"});
+        destinosMap.put("Playa del Carmen", new String[]{destinoAmerica, "/assets/img/citys/PlayaDelCarmen.jpg", "México", "Español", "Castillo San Felipe"});
+        destinosMap.put("Santorini", new String[]{"Santorini", "/assets/img/citys/Santorini.jpg", "Grecia", "Griego", "Oia"});
+        destinosMap.put("Cartagena", new String[]{destinoAmerica, "/assets/img/citys/Cartagena.jpg", "Colombia", "Español", "Murallas de Cartagena"});
+        destinosMap.put("Rio de Janeiro", new String[]{destinoAmerica, "/assets/img/citys/RioDeJaneiro.jpg", "Beasil", "Portugues", "Cristo Redentor"});
+        destinosMap.put("Bariloche", new String[]{destinoAmerica, "/assets/img/citys/Bariloche.jpg", "Argentina", "Español", "Cerro Catedral"});
+        destinosMap.put("Cusco", new String[]{destinoAmerica, "/assets/img/citys/Cusco.jpg", "Perú", "Español", "Machu Picchu"});
+        destinosMap.put("Banff", new String[]{destinoAmerica, "/assets/img/citys/Banff.jpg", "Cánada", "ingles y Francés", "Lago Moraine"});
+        destinosMap.put("Nueva York", new String[]{destinoAmerica, "/assets/img/citys/NuevaYork.jpg", "EEUU", "Inglés", "Estatua de la Libertad"});
+        destinosMap.put("Barcelona", new String[]{"Barcelona", "/assets/img/citys/Barcelona.jpg", "España", "Español", "Sagrada Familia"});
+        destinosMap.put("Lisboa", new String[]{"Lisboa", "/assets/img/citys/Lisboa.jpg", "Portugal", "Portugués", "Torre de Belém"});
+        destinosMap.put("Interlaken", new String[]{"Interlaken", "/assets/img/citys/Interlaken.jpg", "Suiza", "Alemán", "Jungfrau"});
+        destinosMap.put("Granada", new String[]{"Granada", "/assets/img/citys/Granada.jpg", "España", "Español", "Alhambra"});
+        destinosMap.put("Zermatt", new String[]{"Zermatt", "/assets/img/citys/Zermatt.jpg", "Suiza", "Alemán", "Matterhorn"});
+        destinosMap.put("París", new String[]{"París", "/assets/img/citys/Paris.jpg", "Francia", "Francés", "Torre Eiffel"});
+        destinosMap.put("Bora Bora", new String[]{"Bora Bora", "/assets/img/citys/BoraBora.jpg", "Palmas", "Español", "Matterhorn"});
+        destinosMap.put("Dubái", new String[]{"Dubaí", "/assets/img/citys/Dubai.jpg", "Emiratos Árabes Unidos", "árabe", "Burj Khalifa"});
 
 
 
