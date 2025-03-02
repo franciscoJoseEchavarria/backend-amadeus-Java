@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 
 public class DetallesDestinosEntity {
 
-
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,9 +29,7 @@ public class DetallesDestinosEntity {
     private String idioma;
     @Column (nullable = false)
     private String lugarImperdible;
-
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "Det-destino-id", nullable = false)
     private DestinosEntity destinosEntity;
-
 }
