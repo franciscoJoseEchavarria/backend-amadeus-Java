@@ -20,5 +20,4 @@ public class DetallesDestinosModel {
     private String lugarImperdible;
 
     private DestinosModel destinosModel;
-
 }

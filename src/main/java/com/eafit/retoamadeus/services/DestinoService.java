@@ -34,8 +34,9 @@ public class DestinoService {
     private final DetallesDestinoService detallesDestinoService;
 
     public DestinoService(Logica logica, DestinoRepository destinoRepository,
-                          DestinoMapper destinoMapper, UserRepository userRepository, UserQueryRepository userQueryRepository
-                          , DetallesDestinoService detallesDestinoService) {
+                          DestinoMapper destinoMapper, UserRepository userRepository,
+                          UserQueryRepository userQueryRepository, DetallesDestinoService detallesDestinoService)
+    {
         this.logica = logica;
         this.destinoRepository = destinoRepository;
         this.destinoMapper = destinoMapper;

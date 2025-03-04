@@ -40,11 +40,7 @@ public class DestinosEntity {
     @OneToMany  (mappedBy = "destinosEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY) //mappedBy, mapea destinoEntity de la clase DetallesDestinosEntity
     List <DetallesDestinosEntity> detallesDestinoEntity;
 
-    @OneToMany  (mappedBy = "destinosEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY) //mappedBy, mapea destinoEntity de la clase FlightsEntity
-    List <FlightsEntity> flightsEntityList;
 
-    @OneToMany  (mappedBy = "destinosEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY) //mappedBy, mapea destinoEntity de la clase HotelsEntity
-    List <HotelsEntity> hotelsEntityList;
 
     // se añade el constructor con los atributos de la clase
 

@@ -24,8 +24,8 @@ public class FlightsEntity {
     @Column (nullable = false) // Indica que este campo no puede ser nulo en la base de datos
     private String img;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fli-destinosId", nullable = false)
-    private DestinosEntity destinosEntity;
+    @JoinColumn(name = "fli-detallesDestinoId", nullable = false)
+    private DetallesDestinosEntity detallesDestinosEntity;
 
 
 

@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 
 @Entity(name = "DetalleDestinoEntity") // Define la clase como una entidad JPA y la mapea a la tabla 'userQuerysEntities'
 @Data // Genera automáticamente los métodos getter, setter, equals, hashCode y toString
@@ -32,4 +34,11 @@ public class DetallesDestinosEntity {
     @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "Det-destino-id", nullable = false)
     private DestinosEntity destinosEntity;
+
+    @OneToMany  (mappedBy = "detallesDestinosEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY) //mappedBy, mapea destinoEntity de la clase FlightsEntity
+    List<FlightsEntity> flightsEntityList;
+
+    @OneToMany  (mappedBy = "detallesDestinosEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY) //mappedBy, mapea destinoEntity de la clase HotelsEntity
+    List <HotelsEntity> hotelsEntityList;
+
 }

@@ -18,16 +18,4 @@ public interface DestinoRepository extends JpaRepository<DestinosEntity,Long> {
     Optional<DestinosEntity> findByUserQueryEntity(UserQueryEntity userQueryEntity);
 
 
-
-
-    //Guardar una persona
-
-
-
-
-
-
-
-
-
 }
