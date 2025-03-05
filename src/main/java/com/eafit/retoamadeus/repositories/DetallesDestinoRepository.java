@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface DetallesDestinoRepository extends JpaRepository<DetallesDestinosEntity,Long> {
 
     List<DetallesDestinosEntity> findByDestinosEntity_Id(Long destinoid);
-    Optional<DetallesDestinosEntity> findByNombreDestino (String nombreDestino);
+    List<DetallesDestinosEntity> findByNombreDestino (String nombreDestino);
 
 
 }

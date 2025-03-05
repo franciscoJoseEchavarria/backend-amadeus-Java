@@ -70,8 +70,8 @@ public class DetallesDestinosController {
 
 
     @GetMapping("/detalles/{nombreDestino}")
-    public ResponseEntity<DetailsVuelosAHotelsModel> getDetalles(@PathVariable String nombreDestino) {
-        DetailsVuelosAHotelsModel detalles = detailsService.getDetailsForDestinity(nombreDestino);
+    public ResponseEntity<List<DetailsVuelosAHotelsModel>> getDetalles(@PathVariable String nombreDestino) {
+        List <DetailsVuelosAHotelsModel> detalles = detailsService.getDetailsForDestinity(nombreDestino);
         return ResponseEntity.ok(detalles);
     }
 

@@ -17,6 +17,7 @@ import lombok.NoArgsConstructor;
 public class HotelsEntity {
 
     @Id //indica el id de la tabla flights
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(nullable = false) // Indica que este campo no puede ser nulo en la base de datos
     private Long id;
     @Column (nullable = false) // Indica que este campo no puede ser nulo en la base de datos

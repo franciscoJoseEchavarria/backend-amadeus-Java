@@ -8,7 +8,7 @@ import java.util.List;
 
 /*Logica para encontrar las recomendaciones de Hoteles
  *Esta clase esta planteada para tener dos respuesta por cada destino que se desee visitar
- * esta tien esu clase principal en HotelssModel y HotelsEntity
+ * esta tiene su clase principal en HotelssModel y HotelsEntity
  * en los servicios esta clase se debe transferir los datos diirectamente a DetailsVuelosaHotelsMappe,
  * en su servicio se maneja la lógica de la respuesta
  * se utiliza este mapper para los principios SOLID y separar responsabilidades

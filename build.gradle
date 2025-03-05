@@ -96,6 +96,11 @@ tasks.withType(org.springframework.boot.gradle.tasks.run.BootRun) {
     mainClass.set('com.eafit.retoamadeus.Reto3BackAmadeusApplication')
 }
 
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-parameters"
+}
+
+
 bootJar {
     mainClass.set('com.eafit.retoamadeus.Reto3BackAmadeusApplication')
 }

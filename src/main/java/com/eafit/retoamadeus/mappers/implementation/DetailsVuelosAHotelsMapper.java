@@ -8,12 +8,14 @@ import com.eafit.retoamadeus.models.DetailsVuelosAHotelsModel;
 import com.eafit.retoamadeus.models.FlightsModels;
 import org.mapstruct.Mapper;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring" , uses = {HotelMapper.class, FlightsMapper.class}  ) //se llaman hotel mapper y flights mapper
 
 public interface DetailsVuelosAHotelsMapper {
 
     DetailsVuelosAHotelsModel mapDetallesDestinosEntityToDetailsVuelosAHotelModel (DetallesDestinosEntity detallesDestinosEntity);
-
+    List<DetailsVuelosAHotelsModel> mapDetallesDestinosEntitiesListToDetailsVuelosAHotelsModelsList(List<DetallesDestinosEntity> entities);
 }
 
 /* así se utilizaría si fuera con models -- NO BORRAR EXPLICACIÓN
