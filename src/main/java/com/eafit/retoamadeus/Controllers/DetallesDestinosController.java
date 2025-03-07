@@ -2,13 +2,9 @@ package com.eafit.retoamadeus.Controllers;
 
 import com.eafit.retoamadeus.contracts.responses.DetallesDestinosResponse;
 import com.eafit.retoamadeus.mappers.intefaces.DetallesDestinoInterface;
-import com.eafit.retoamadeus.models.DestinosModel;
-import com.eafit.retoamadeus.models.DetailsVuelosAHotelsModel;
 import com.eafit.retoamadeus.models.DetallesDestinosModel;
-import com.eafit.retoamadeus.services.DetailsVuelosAHotelsService;
 import com.eafit.retoamadeus.services.DetallesDestinoService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +19,6 @@ public class DetallesDestinosController {
 
     private final DetallesDestinoService detallesDestinoService;
     private final DetallesDestinoInterface detallesDestinoInterface;
-    private final DetailsVuelosAHotelsService detailsService;
 
   // obtener una lista de todos los detalles de los destinos
   @GetMapping("/list")

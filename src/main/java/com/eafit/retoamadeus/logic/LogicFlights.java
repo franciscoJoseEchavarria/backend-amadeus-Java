@@ -3,6 +3,8 @@
 package com.eafit.retoamadeus.logic;
 import java.util.List;
 import java.util.Map;
+
+import com.eafit.retoamadeus.models.DetallesDestinosModel;
 import com.eafit.retoamadeus.models.FlightsModels;
 import com.eafit.retoamadeus.models.HotelModel;
 import org.springframework.stereotype.Component;

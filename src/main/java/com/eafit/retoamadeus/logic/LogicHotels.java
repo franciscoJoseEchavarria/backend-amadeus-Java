@@ -1,5 +1,6 @@
 package com.eafit.retoamadeus.logic;
 
+import com.eafit.retoamadeus.models.DetallesDestinosModel;
 import com.eafit.retoamadeus.models.HotelModel;
 import org.springframework.stereotype.Component;
 
