@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class HotelsResponse {
+public class FlightResponse {
 
     private Long id;
     private String name;

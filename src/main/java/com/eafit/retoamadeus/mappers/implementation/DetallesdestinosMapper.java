@@ -17,13 +17,20 @@ import java.util.stream.Collectors;
 public class DetallesdestinosMapper {
 
 
-    List<DetallesDestinosModel> mapDetallesDestinosEntityListToDetallesDestinosModelList(List<DetallesDestinosEntity> entities) {
+
+    public List <DetallesDestinosModel> mapDetalleSdestinosEntityListUnicToDetallesDestinosModelListUnic(List<DetallesDestinosEntity> entities){
+        return entities.stream()
+                .map(this::mapDetallesDestinoEntityUnicToDetallesDestinoModelUnic)
+                .collect(Collectors.toList());
+    }
+
+    public List<DetallesDestinosModel> mapDetallesDestinosEntityListToDetallesDestinosModelList(List<DetallesDestinosEntity> entities) {
         return entities.stream()
                 .map(this::mapDetallesDestinoEntityToDetallesDestinoModel)
                 .collect(Collectors.toList());
     }
 
-    List<DetallesDestinosEntity> mapDetallesDestinosModelListToDetallesDestinosEntityList(List<DetallesDestinosModel> models) {
+    public List<DetallesDestinosEntity> mapDetallesDestinosModelListToDetallesDestinosEntityList(List<DetallesDestinosModel> models) {
         return models.stream()
                 .map(this::mapDetallesDestinosModelToDestallesDestinosEntity)
                 .collect(Collectors.toList());
@@ -66,6 +73,18 @@ public class DetallesdestinosMapper {
                                                 .ageRange(detallesDestinosModel.getDestinosModel().getUserQuerysModel().getAgeRange())
                                                 .build() : null)
                                 .build() : null)
+                .build();
+    }
+
+
+    public DetallesDestinosModel mapDetallesDestinoEntityUnicToDetallesDestinoModelUnic (DetallesDestinosEntity detallesDestinosEntity){
+        return DetallesDestinosModel.builder()
+
+                .nombreDestino(detallesDestinosEntity.getNombreDestino())
+                .img(detallesDestinosEntity.getImg())
+                .pais(detallesDestinosEntity.getPais())
+                .idioma(detallesDestinosEntity.getIdioma())
+                .lugarImperdible(detallesDestinosEntity.getLugarImperdible())
                 .build();
     }
 

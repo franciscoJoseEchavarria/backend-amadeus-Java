@@ -8,4 +8,5 @@ public interface FlightsRepository extends JpaRepository<FlightsEntity, Long> {
 
 
 
+
 }
