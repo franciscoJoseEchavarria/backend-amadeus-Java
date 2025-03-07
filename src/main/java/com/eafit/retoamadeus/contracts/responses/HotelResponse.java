@@ -10,12 +10,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class HotelResponse {
 
+public class HotelResponse {
     private Long id;
     private String name;
     private String description;
     private String img;
     private DetallesDestinosResponse detallesDestinosResponse;
-
 }

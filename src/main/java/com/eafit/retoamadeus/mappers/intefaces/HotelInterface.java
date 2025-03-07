@@ -8,11 +8,12 @@ import org.mapstruct.Mapping;
 
 import java.util.List;
 
+
 @Mapper(componentModel = "spring") // Indica que esta interfaz es un mapper de MapStruct y que debe ser gestionado
 public interface HotelInterface {
 
 
-    @Mapping(target = "detallesDestinoResponse", source = "detallesDestinosModel")
+    @Mapping(target = "detallesDestinosResponse", source = "detallesDestinosModel")
     HotelResponse mapHotelModelToHotelResponse(HotelModel hotelModel);
 
     List<HotelResponse> mapHotelModelListToHotelResponseList(List<HotelModel> hotelModelList);

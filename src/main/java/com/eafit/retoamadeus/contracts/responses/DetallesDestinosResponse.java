@@ -21,6 +21,4 @@ public class DetallesDestinosResponse {
     private String lugarImperdible;
     private DestinosModel destinosModel;
 
-
-
 }

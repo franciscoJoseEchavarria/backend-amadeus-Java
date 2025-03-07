@@ -39,4 +39,6 @@ public interface FlightsMapper {
         }
         return flightsModels;
     }
+
+
 }

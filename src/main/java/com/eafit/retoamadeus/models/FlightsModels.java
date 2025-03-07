@@ -14,4 +14,5 @@ public class FlightsModels {
     private String name;
     private String description;
     private String img;
+    private DetallesDestinosModel detallesDestinosModel;
 }

@@ -36,11 +36,9 @@ public class DetallesDestinosEntity {
     private DestinosEntity destinosEntity;
 
     @OneToMany  (mappedBy = "detallesDestinosEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY) //mappedBy, mapea destinoEntity de la clase FlightsEntity
-    @OrderColumn(name = "index_flight")
     List<FlightsEntity> flightsEntityList;
 
     @OneToMany  (mappedBy = "detallesDestinosEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY) //mappedBy, mapea destinoEntity de la clase HotelsEntity
-    @OrderColumn(name = "index_hotel")
     List <HotelsEntity> hotelsEntityList;
 
 }

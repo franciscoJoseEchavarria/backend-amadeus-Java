@@ -16,4 +16,5 @@ public class FlightResponse {
     private String name;
     private String description;
     private String img;
+    private DetallesDestinosResponse detallesDestinosResponse;
 }
