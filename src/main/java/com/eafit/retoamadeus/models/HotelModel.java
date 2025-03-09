@@ -15,6 +15,4 @@ public class HotelModel {
     private String description;
     private String img;
     private DetallesDestinosModel detallesDestinosModel;
-
-
 }

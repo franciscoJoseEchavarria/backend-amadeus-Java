@@ -31,6 +31,5 @@ public class FlightsController {
     @GetMapping("/list")
     public List<FlightResponse> getFlightList() {
         return flightInterface.mapFlightModelListToFlightResponseList(flightService.getFlightsList());
-
     }
 }
