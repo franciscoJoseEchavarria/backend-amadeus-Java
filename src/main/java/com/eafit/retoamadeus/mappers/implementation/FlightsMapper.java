@@ -13,7 +13,8 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface FlightsMapper {
 
-    @Mapping(target = "detallesDestinosEntity", expression = "java(detallesDestino)")
+    //mapea del contexto a la entidad--- si se tiene muchas capas es mejor tener el atributo con los mismo nombres en las entidades, modelos, respuesta, etc
+    @Mapping(target = "detallesDestinos", expression = "java(detallesDestino)")
     FlightsEntity mapFlightsModelToFlightsEntity(FlightsModels flightsModels, @Context DetallesDestinosEntity detallesDestino) ;
 
     FlightsModels mapFlightsEntityToFlightsModel(FlightsEntity flightsEntity) ;

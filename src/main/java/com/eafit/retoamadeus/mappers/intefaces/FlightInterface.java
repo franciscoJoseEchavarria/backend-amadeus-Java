@@ -13,7 +13,7 @@ import java.util.List;
 public interface FlightInterface {
 
 
-    @Mapping(target = "detallesDestinosResponse", source = "detallesDestinosModel")
+    @Mapping(target = "detallesDestinos", source = "detallesDestinos")
     FlightResponse mapFlightModelToFlightRespose(FlightsModels flightsModels);
 
     List<FlightResponse> mapFlightModelListToFlightResponseList(List<FlightsModels> flightsModelsList);

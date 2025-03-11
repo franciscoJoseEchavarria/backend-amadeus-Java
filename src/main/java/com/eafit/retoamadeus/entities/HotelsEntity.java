@@ -28,6 +28,6 @@ public class HotelsEntity {
     private String img;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Hot-detallesDestinoId", nullable = false)
-    private DetallesDestinosEntity detallesDestinosEntity;
+    private DetallesDestinosEntity detallesDestinos;
 
 }

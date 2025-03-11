@@ -1,0 +1,227 @@
+[33mcommit 5f1480854d71987504007622575dcde4fcb14d4b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Sun Mar 9 10:49:08 2025 -0500
+
+    solution Api Flight and hotel
+
+[33mcommit 3d45caaaa3abc640b0f3993db47166917aedbb91[m[33m ([m[1;32mnueva-rama[m[33m)[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Fri Mar 7 13:04:55 2025 -0500
+
+    create controller of flight
+
+[33mcommit 5f30b9e75dc0f85599ea2423e6a3123e642bd363[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Fri Mar 7 10:47:55 2025 -0500
+
+    persistenc of DataHotel create
+
+[33mcommit 29fe7d7705c213cf46dddee440693b7282d9c343[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Fri Mar 7 06:27:44 2025 -0500
+
+    create th hotel and flight services
+
+[33mcommit ff3474d9fdcc41ad987aa83b44b75ada5cf9507b[m[33m ([m[1;31morigin/MFlightAHotel[m[33m, [m[1;32mMFlightAHotel[m[33m)[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Tue Mar 4 21:50:43 2025 -0500
+
+    create th contex for the Hotels and Flights
+
+[33mcommit a68f241dd4583489390a1295410ea91dd53d798d[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Tue Mar 4 15:09:39 2025 -0500
+
+    creation of recomendation hotel and Flights
+
+[33mcommit 6586b4cbcbb56223a972ef4f57b3d89619f13c39[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Sun Mar 2 11:48:10 2025 -0500
+
+    create de model and Entitys of Flights, Hotels and DTO DetailsVAH
+
+[33mcommit 74f0f14d114c03df5956abe8edadd88e8cdd4b3a[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Sun Mar 2 10:10:26 2025 -0500
+
+    init to develop the models Hotel and flights
+
+[33mcommit 57e4d50c245e691793639d03aee2151e43c15ddc[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Fri Feb 28 17:20:49 2025 -0500
+
+    solution the image in the LDetallesDestinos
+
+[33mcommit 0900b899066dd129eda964c77f6460e167544cbe[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Fri Feb 28 13:55:31 2025 -0500
+
+    init solution to Logic for search image in the frontend
+
+[33mcommit a0ccb0d32d7d3ac51d77a1a0a4debaa2a66b5d12[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Thu Feb 27 12:14:58 2025 -0500
+
+    completing readme
+
+[33mcommit be91b7d5c919539a4b9580e424ef020fdbebab07[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Sat Feb 22 19:40:51 2025 -0500
+
+    solution the backend
+
+[33mcommit bb12366608d30ad9fb4172d81ea1f59dade4abe4[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Thu Feb 20 22:00:05 2025 -0500
+
+    change in DetallesDestinos for solution that ID with DetallesDestinos
+
+[33mcommit 4576114df1ab7e7c88ff6f4744e79f0759dae5b4[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Thu Feb 20 01:28:41 2025 -0500
+
+    commit antes de romperse todo
+
+[33mcommit f0b3fc08effef2e0412ffc13ed5f81bb51113c7c[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Wed Feb 19 23:06:00 2025 -0500
+
+    readme completed
+
+[33mcommit 8bad1a62fe6ce1624404c67279f2b931f78968cb[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Wed Feb 19 23:04:21 2025 -0500
+
+    change
+
+[33mcommit 8b183ded9015779d59330a993341c6e3b9568799[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Wed Feb 19 23:00:25 2025 -0500
+
+    change of readme
+
+[33mcommit 4fc8bc7d601c35af6397fe0b9252a767e825c705[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Wed Feb 19 16:28:10 2025 -0500
+
+    documentation completed -user
+
+[33mcommit f16e2780055fc56395ac9438579ee0d2d0d66da0[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Wed Feb 19 15:46:43 2025 -0500
+
+    improving documentation
+
+[33mcommit 9d825092c265ece5b4e5c41b5ae80815c93859ca[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Tue Feb 18 22:53:38 2025 -0500
+
+    implicitis changes
+
+[33mcommit 7ff15f85e9554f6bb44c75f66d8d1b930d8edff1[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Tue Feb 18 13:16:07 2025 -0500
+
+    readme completed
+
+[33mcommit d14196fb57e2739a3863052f625f5b5f91635298[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Tue Feb 18 12:59:28 2025 -0500
+
+    commit
+
+[33mcommit 554900edf9868ef0a21a2c16c7cc61d2142d7667[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Tue Feb 18 12:57:33 2025 -0500
+
+    solution commit
+
+[33mcommit 7d761270adcee4dfa7e9609d48e4a64cb54f3f6e[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Tue Feb 18 12:56:10 2025 -0500
+
+    finished Readme
+
+[33mcommit d6cb68b1f71a7e012b0c27285086452e279cf54e[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Tue Feb 18 12:44:25 2025 -0500
+
+    creating readme
+
+[33mcommit a9838b3a119d85f4c04da33dfa66e7a24eda3752[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Tue Feb 18 12:12:11 2025 -0500
+
+    Documentation for intialicion
+
+[33mcommit 41bca11d8619908f48e33d2808d77ca5ca0daa66[m[33m ([m[1;31morigin/4[m[33m)[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Sat Feb 1 00:25:29 2025 -0500
+
+    Actualización: Se realiza los modelos, entidades, servicios y controladores de DetallesDestinos
+
+[33mcommit 3416d25b4e91a18788767cb7d06d43849209a7c3[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Fri Jan 31 11:59:56 2025 -0500
+
+    Arreglo de la logica
+
+[33mcommit 0e3952c73c2876f98e39edfa88e3ff6a98665494[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Tue Jan 28 20:11:48 2025 -0500
+
+    Se utiliza esta rama como prueba de DestallesdestinoResponse
+
+[33mcommit 91d42d32a8ac6d03a8dae01b3de0e0dd3cf4852a[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Fri Jan 24 01:53:54 2025 -0500
+
+    solción de DestinoReques con el frontend
+
+[33mcommit c69bf3163fa58bdf215c2bd164ee26255ea0fb77[m[33m ([m[1;31morigin/rama-3[m[33m)[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Tue Jan 21 22:43:09 2025 -0500
+
+    se solucionó el problema de crear Destino
+
+[33mcommit 8c41bb32026b741180b709e645b016ff41f3ec7c[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Sun Jan 19 14:04:32 2025 -0500
+
+    se está arreglando el tema de Destino para que tome un request y devuelva un model distinto
+
+[33mcommit 5dcdcecbfd0a7241ec898431868b20d799d7121a[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Sat Jan 18 21:22:13 2025 -0500
+
+    desarrollo de la clase DestinoRespository, con errores al crearlo
+
+[33mcommit ea983207b58d517fed36c1632d70e15cea4edd71[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Thu Jan 16 19:44:59 2025 -0500
+
+    Destino Service fallando
+
+[33mcommit 6c331ab74b4e072947d30d44c52c84743bb27afc[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Thu Jan 16 16:53:45 2025 -0500
+
+    inicio de pruebas para ver si funciona el código en Postman, Clase Destino
+
+[33mcommit 71c9a2d21ed289d3b132ada67627e5544510f82e[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Wed Jan 15 20:47:34 2025 -0500
+
+    se agregan las condicionales para la lógica de negocio - sin romperse el backend
+
+[33mcommit 65c1f94798c8cc2a006a7484e9b343830c0d2380[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Wed Jan 15 18:59:36 2025 -0500
+
+    resolviendo lógica de negocio
+
+[33mcommit 843ff787848719706524654b8e6a1d5f240ecd42[m
+Author: Francisco Echavarría <fjepaez@gmail.com>
+Date:   Fri Jan 3 15:11:16 2025 -0400
+
+    Inicializando el repositorio con el proyecto

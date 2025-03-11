@@ -35,10 +35,10 @@ public class DetallesDestinosEntity {
     @JoinColumn(name = "Det-destino-id", nullable = false)
     private DestinosEntity destinosEntity;
 
-    @OneToMany  (mappedBy = "detallesDestinosEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY) //mappedBy, mapea destinoEntity de la clase FlightsEntity
+    @OneToMany  (mappedBy = "detallesDestinos", cascade = CascadeType.ALL, fetch = FetchType.LAZY) //mappedBy, mapea destinoEntity de la clase FlightsEntity
     List<FlightsEntity> flightsEntityList;
 
-    @OneToMany  (mappedBy = "detallesDestinosEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY) //mappedBy, mapea destinoEntity de la clase HotelsEntity
+    @OneToMany  (mappedBy = "detallesDestinos", cascade = CascadeType.ALL, fetch = FetchType.LAZY) //mappedBy, mapea destinoEntity de la clase HotelsEntity
     List <HotelsEntity> hotelsEntityList;
 
 }

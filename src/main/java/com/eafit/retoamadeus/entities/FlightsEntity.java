@@ -26,5 +26,5 @@ public class FlightsEntity {
     private String img;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fli-detallesDestinoId", nullable = false)
-    private DetallesDestinosEntity detallesDestinosEntity;
+    private DetallesDestinosEntity detallesDestinos;
 }

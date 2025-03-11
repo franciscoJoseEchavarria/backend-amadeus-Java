@@ -13,7 +13,7 @@ import java.util.List;
 public interface HotelInterface {
 
 
-    @Mapping(target = "detallesDestinosResponse", source = "detallesDestinosModel")
+    @Mapping(target = "detallesDestinos", source = "detallesDestinos")
     HotelResponse mapHotelModelToHotelResponse(HotelModel hotelModel);
 
     List<HotelResponse> mapHotelModelListToHotelResponseList(List<HotelModel> hotelModelList);

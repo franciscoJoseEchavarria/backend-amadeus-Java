@@ -14,7 +14,8 @@ import java.util.stream.Collectors;
 @Mapper(componentModel = "spring")
 public interface HotelMapper {
 
-    @Mapping(target = "detallesDestinosEntity", expression = "java(detallesDestino)")
+    //mapea del contexto a la entidad--- si se tiene muchas capas es mejor tener el atributo con los mismo nombres en las entidades, modelos, respuesta, etc
+    @Mapping(target = "detallesDestinos", expression = "java(detallesDestino)")
     HotelsEntity mapHotelModelToHotelEntity(HotelModel hotelModel, @Context DetallesDestinosEntity detallesDestino);
 
     HotelModel mapHotelEntityToHotelModel(HotelsEntity hotelsEntity);

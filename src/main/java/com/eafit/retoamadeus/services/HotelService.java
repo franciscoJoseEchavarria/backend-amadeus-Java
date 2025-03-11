@@ -38,6 +38,7 @@ public class HotelService {
         }
         DetallesDestinosModel detallesDestinosModel = detallesdestinosMapper.mapDetallesDestinoEntityToDetallesDestinoModel(detallesDestinosEntity.get());
         List<HotelModel> hotelModels =  logicHotels.getHotelRecommendations(detallesDestinosModel.getNombreDestino());
+        //pasa el contexto a las entidades.
         List <HotelsEntity> hotelsEntities = hotelMapper.mapHotelModelListToHotelsEntityList(hotelModels, detallesDestinosEntity.get());
         hotelsRepository.saveAll(hotelsEntities);
         return hotelMapper.mapHotelsEntityListToHotelModelList(hotelsEntities);
